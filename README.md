@@ -31,6 +31,23 @@ $ node ace migration:run
 # Executando aplicação
 $ npm run dev
 ```
+### Rodando no heroku
+```bash
+#gerando o projeto
+$ npm run build
+
+#crie O arquivo Procfile(*unix like)
+$ nano Procfile.txt
+
+#insira os textos mostrados no cat abaixo:
+$ cat
+release: ENV_SILENT=true node ace migration:run --force
+web: ENV_SILENT=true npm start
+```
+
+#### Edite O arquivo package.json scripts start
+> "start": "ENV_SILENT=true node server.js",
+> e configure as variáveis de ambiente no heroku
 
 #### Rotas
 
