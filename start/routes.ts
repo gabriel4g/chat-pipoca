@@ -21,6 +21,16 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.group(() => {
+    Route.get('/', async ({ auth, response }) => {
+        if(auth.user) {
+            return 'OK'
+        } else {
+            response.redirect('/login')
+        }
+    })
+}).prefix('/').middleware('auth')
+
+Route.group(() => {
     Route.get('/', 'Auth/LoginController.index')
     Route.post('/', 'Auth/LoginController.check')
 }).prefix('/login')
