@@ -11,7 +11,7 @@ export default class LoginController {
                 type: 'danger',
                 text: 'white',
                 message: 'E-mail ou senha, estão incorretos!',
-                icon: 'fa-exclamation'
+                icon: 'exclamation'
             }
         })
         return response.redirect('back')
