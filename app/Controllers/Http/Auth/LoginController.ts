@@ -5,7 +5,7 @@ export default class LoginController {
         return view.render('Auth/login')
     }
 
-    public async check({ session }) {
+    public async check({ session, response }) {
         session.flash({
             notification: {
                 type: 'danger',
@@ -13,5 +13,6 @@ export default class LoginController {
                 message: 'E-mail ou senha, estão incorretos!'
             }
         })
+        return response.redirect('back')
     }
 }
