@@ -10,7 +10,8 @@ export default class LoginController {
             notification: {
                 type: 'danger',
                 text: 'white',
-                message: 'E-mail ou senha, estão incorretos!'
+                message: 'E-mail ou senha, estão incorretos!',
+                icon: 'fa-exclamation'
             }
         })
         return response.redirect('back')
