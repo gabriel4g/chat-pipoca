@@ -2,10 +2,10 @@
 
 export default class RegistersController {
     public index({ view }) {
-        view.render('register')
+        view.render('Auth/register')
     }
 
     public async store() {
-        
+
     }
 }
