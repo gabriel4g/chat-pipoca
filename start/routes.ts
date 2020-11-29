@@ -20,4 +20,12 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.on('/').render('welcome')
+Route.group(() => {
+    Route.get('/', 'LoginController.index')
+    Route.post('/', 'LoginController.check')
+}).prefix('/login')
+
+Route.group(() => {
+    Route.get('/', 'RegisterController.index')
+    Route.post('/', 'RegisterController.store')
+}).prefix('/register')
