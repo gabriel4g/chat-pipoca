@@ -1,0 +1,22 @@
+<nav class="nav-border" style="margin: 18pt 0 0">
+    <p><i class="fas fa-bullhorn"></i>
+        <strong> Mural da equipe:</strong>
+        Aqui vai ficar textos ligados ao banco de dados.
+    </p> 
+</nav>
+<nav class="nav-border">
+    @if(auth.user)
+        <i class="fas fa-user"></i>
+        <a href="/user/{{ auth.user.id }}" style="color: {{ auth.user.user_color }}; 
+            font-weight: bold;">
+            {{ auth.user.username }}
+        </a>
+        <i class="fas fa-sign-out-alt" style="margin-left: 4pt;"></i>
+        <a href="/logout">Sair</a>
+    @else
+        <i class="fas fa-sign-in-alt"></i>
+        <a href="/login" class="">Entrar</a>
+        <i class="fas fa-user-plus" style="margin-left: 4pt;"></i>
+        <a href="/register">Registrar-se</a>
+    @endIf
+</nav>
