@@ -1,2 +1,47 @@
-# chat-pipoca
-Comunidade Wap refeita em adonisJS v5
+# Comunidade wap chat-pipoca
+
+<h4 align="center"> 
+	🚧  Chat-pipoca  🚀 Em construção...  🚧
+</h4>
+
+#### Configure o ENV
+
+> Renomeie o arquivo .env.example para .env e o edite
+> configure a conexão com o banco de dados mySQL/mariaDB
+
+
+#### Rodando o Back-end (servidor) - ambiente de desenvolvimento
+
+```bash
+# Clone o repositório
+$ git clone https://github.com/gabriel4g/chat-pipoca.git
+
+# Acesse a pasta do projeto terminal/cmd
+$ cd api-calorias
+
+# Instale as dependências
+$ npm install
+
+# gerando APP_KEY
+$ node ace key:generate
+
+# Execute as migrations
+$ node ace migration:run
+
+# Executando aplicação
+$ npm run dev
+```
+
+#### Rotas
+
+> - [X] /login (PUT) validação de usuário no BD
+> - [X] /register (POST) criação de usuário no BD
+> - [ ] /user/delete (POST) rota para deletar usuário do banco de dados
+> - [ ] /user/update/:id (GET) rota para editar dados do usuário no banco de dados
+
+#### 🛠 Tecnologias
+
+> - [node.js](https://nodejs.org/en/)
+> - [adonisJS/v5](https://adonisjs.com/)
+> - [mySQL/mariaDB]
+
