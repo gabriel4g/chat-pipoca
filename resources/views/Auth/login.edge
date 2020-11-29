@@ -3,7 +3,7 @@
     <div class="div-bar">Entrar</div>
 
     @include('imports/notification')
-    <form action="{{ route('login') }}" method="post">
+    <form action="{{ route('Auth/LoginController.check') }}" method="post">
         <label for="" class="input-space" style="margin-top:2%">
             Nome de Usuário:
             <input type="text" name="username" id="" 
