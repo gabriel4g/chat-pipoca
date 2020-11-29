@@ -1,0 +1,34 @@
+@layout('layouts/app')
+@section('content')
+    <div class="div-bar">Entrar</div>
+
+    @include('imports/notification')
+    <form action="{{ route('login') }}" method="post">
+        <label for="" class="input-space" style="margin-top:2%">
+            Nome de Usuário:
+            <input type="text" name="username" id="" 
+            style="height:40px; font-size:17px;"
+            placeholder="Nome">
+        </label>
+        <br/>
+        <label for="" class="input-space" style="margin-top: -12pt;">
+            Senha:
+            <input type="password" name="password" id="" 
+            style="height:40px; font-size:17px;"
+            placeholder="Senha">
+        </label>
+	<div class="form-check" id="check" >
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="remember">
+  		<label class="form-check-label" for="defaultCheck1" style="" id="remember">
+    			Manter-me conectado!
+  		</label>
+	</div>
+        <button type="submit" class="btn btn-dark">
+        Logar
+        </button>
+        <div style="text-align: center; margin: 2% 0;">
+            <i class="fas fa-lock"></i>
+            <a href="remember">Esqueceu a senha?</a>
+        </div>
+    </form>
+@endsection
