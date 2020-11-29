@@ -2,7 +2,7 @@
 
 export default class LoginController {
     public index({ view }) {
-        return view.render('login')
+        return view.render('Auth/login')
     }
 
     public async check({ session }) {
