@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">
+        <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Chat-Pipoca
+    </a>
+    @if(auth.user)
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown"
+	        style= "margin-left: 8vw;">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">
+                        <i class="fas fa-home"></i> Início
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/msg">
+                        <i class="fas fa-inbox"></i> Mensagens
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/notf">
+                        <i class="fas fa-bell"></i> Notificações
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/conf">
+                        <i class="fas fa-user-cog"></i> 
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="forum">
+                        <i class="fas fa-align-center"></i> Fórum
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
+                        role="button" data-toggle="dropdown" aria-haspopup="true" 
+                        aria-expanded="false">
+                        <i class="fas fa-plus"></i> Extras
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/emojis">
+                            <i class="fas fa-smile-beam"></i> Emoticons
+                        </a>
+                        <a class="dropdown-item" href="/cores">
+                            <i class="fas fa-swatchbook"></i> Tabela de cores
+                        </a>
+                        <a class="dropdown-item" href="/conf/txt">
+                            <i class="fas fa-text-height"></i> Formatação de textos
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    @endIf
+  </nav>
