@@ -1,7 +1,5 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-import Session from "@ioc:Adonis/Addons/Session"
-
 export default class LoginController {
     public index({ view }) {
         return view.render('login')
