@@ -22,7 +22,7 @@ export default class RegistersController {
                     notification: {
                         type: 'danger',
                         text: 'white',
-                        message: 'Não foi possivel salvar os dados!',
+                        message: 'As senhas não conferem!',
                         icon: 'exclamation'
                     }
                 })
@@ -38,7 +38,7 @@ export default class RegistersController {
                     notification: {
                         type: 'success',
                         text: 'white',
-                        message: 'Conta criada com sucesso',
+                        message: 'Conta criada com sucesso!',
                         icon: 'check'
                     }
                 })
