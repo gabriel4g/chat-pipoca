@@ -29,4 +29,10 @@ export default class LoginController {
         message.notificationFlash('danger', 'white', 'E-mail ou senha, estão incorretos!', 'exclamation')
         message.status(session, response)
     }
+
+    public async logout({ auth, response }) {
+        await auth.logout()
+
+        return response.redirect('/login')
+    }
 }
