@@ -10,12 +10,24 @@ export default class RegistersController {
     public async store({ request, session, response }) {
         const user = new User();
 
-        const { username, email, password } = request.all()
+        const { username, email, password, repeatPassword } = request.all()
 
         try {
             user.username = username
             user.email = email
-            user.password = password
+            if(password == repeatPassword) {
+                user.password = password
+            } else {
+                session.flash({
+                    notification: {
+                        type: 'danger',
+                        text: 'white',
+                        message: 'Não foi possivel salvar os dados!',
+                        icon: 'exclamation'
+                    }
+                })
+                return response.redirect('back')
+            }
             user.photo = '/images/profile.png'
             user.permission = 2
 
