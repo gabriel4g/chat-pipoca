@@ -21,7 +21,7 @@ export default class RegistersController {
                 user.password = password
             } else {
                 
-                message.notificationFlash('danger', 'white', 'As senhas não conferem!', 'exclamation')
+                message.notificationFlash('danger', 'white', 'As senhas não batem!', 'exclamation')
                 message.status(session, response)
             }
             user.photo = '/images/profile.png'
