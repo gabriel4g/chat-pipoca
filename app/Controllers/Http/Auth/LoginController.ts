@@ -5,13 +5,12 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import Notification from 'App/Helpers/NotficationHelper'
 
 export default class LoginController {
-    public index({ view }) {
+    public index({ view, auth, response }) {
+        if(auth.user) return response.redirect('/')
         return view.render('Auth/login')
     }
 
     public async check({ request, session, response, auth }) {
-        if(auth.user) return response.redirect('/')
-
         const {email, password, remember} = request.all()
         const message = new Notification()
 
