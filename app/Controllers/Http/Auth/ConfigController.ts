@@ -3,7 +3,7 @@
 export default class ConfigsController {
     public async index({ response, view, auth }) {
         if(auth.user) {
-            view.render('Auth/configs/config')
+            return view.render('Auth/configs/config')
         } else {
             response.redirect('/login')
         }
