@@ -20,16 +20,7 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.group(() => {
-    Route.get('/', async ({ auth, response }) => {
-        if(auth.user) {
-            const user = await auth.authenticate()
-            return `${user.email}`
-        } else {
-            response.redirect('/login')
-        }
-    })
-}).prefix('/').middleware('auth')
+Route.get('/', 'Auth/HomeController.index').middleware('auth')
 
 Route.group(() => {
     Route.get('/', 'Auth/LoginController.index')
