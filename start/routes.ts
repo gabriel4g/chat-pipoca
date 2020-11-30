@@ -26,16 +26,22 @@ Route.get('/u/:id', 'Auth/ProfileController.index').middleware('auth')
 
 
 Route.group(() => {
-    Route.get('/', 'Auth/LoginController.index')
-    Route.post('/', 'Auth/LoginController.check')
+    Route.get('/', 'LoginController.index')
+    Route.post('/', 'LoginController.check')
 }).prefix('/login')
 
 Route.group(() => {
-    Route.get('/', 'Auth/RegisterController.index')
-    Route.post('/', 'Auth/RegisterController.store')
+    Route.get('/', 'RegisterController.index')
+    Route.post('/', 'RegisterController.store')
 }).prefix('/register')
 
 Route.group(() => {
     Route.get('/', 'Auth/ConfigController.index')
-    Route.get('color', 'Auth/ConfigController.updateColor')
+    Route.get('/upload', 'Config/ImageController.index')
+    Route.put('/upload', 'Config/ImageController.store')
+    Route.delete('/delete/img', 'Config/ImageController.destroy')
+    Route.get('/profile', 'Auth/ProfileController.edit')
+    Route.put('/profile', 'Auth/ProfileController.update')
+    Route.get('color', 'Config/NickColorController.index')
+    Route.put('color', 'Config/NickColorController.edit')
 }).prefix('/config').middleware('auth')
