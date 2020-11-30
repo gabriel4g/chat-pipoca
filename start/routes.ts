@@ -38,10 +38,10 @@ Route.group(() => {
 Route.group(() => {
     Route.get('/', 'Config/ConfigController.index')
     Route.get('/upload', 'Config/ImageController.index')
-    Route.put('/upload', 'Config/ImageController.store')
+    Route.post('/upload', 'Config/ImageController.store')
     Route.delete('/delete/img', 'Config/ImageController.destroy')
     Route.get('/profile', 'Auth/ProfileController.edit')
-    Route.put('/profile', 'Auth/ProfileController.update')
+    Route.post('/profile', 'Auth/ProfileController.update')
     Route.get('/color', 'Config/NickColorController.index')
-    Route.put('/color', 'Config/NickColorController.edit')
+    Route.post('/color', 'Config/NickColorController.edit')
 }).prefix('/config').middleware('auth')
