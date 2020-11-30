@@ -37,4 +37,5 @@ Route.group(() => {
 
 Route.group(() => {
     Route.get('/', 'Auth/ConfigController.index')
+    Route.get('color', 'Auth/ConfigController.updateColor')
 }).prefix('/config').middleware('auth')
