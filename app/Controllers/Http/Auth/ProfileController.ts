@@ -16,4 +16,16 @@ export default class ProfilesController {
             response.redirect('/login')
         }
     }
+
+    public async edit() {
+
+    }
+
+    public async update() {
+
+    }
+
+    public async destroy() {
+
+    }
 }
