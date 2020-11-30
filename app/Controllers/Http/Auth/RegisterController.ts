@@ -17,13 +17,7 @@ export default class RegistersController {
         try {
             user.username = username
             user.email = email
-            if(password == repeatPassword) {
-                user.password = password
-            } else {
-                
-                message.notificationFlash('danger', 'white', 'As senhas não batem!', 'exclamation')
-                message.status(session, response)
-            }
+            user.password = password
             user.photo = '/images/profile.png'
             user.permission = 2
 
@@ -34,8 +28,13 @@ export default class RegistersController {
                 message.status(session, response)
             }
         }catch(err) {
-            message.notificationFlash('danger', 'white', 'Não foi possivel salvar os dados!', 'exclamation')
-            message.status(session, response)
+           if(password != repeatPassword) {
+                message.notificationFlash('danger', 'white', 'As senhas não batem!', 'exclamation')
+                message.status(session, response)
+           } else {
+                message.notificationFlash('danger', 'white', 'Não foi possivel salvar os dados!', 'exclamation')
+                message.status(session, response)
+           }
         }
     }
 }
