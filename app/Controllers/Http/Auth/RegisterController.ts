@@ -41,7 +41,7 @@ export default class RegistersController {
                     icon: 'exclamation'
                 }
             })
-            return response.redirext('back')
+            return response.redirect('back')
         }
     }
 }
