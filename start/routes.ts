@@ -20,11 +20,9 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.group(() => {
-    Route.get('/', 'Auth/HomeController.index')
-    Route.get('/logout', 'Auth/LoginController.logout')
-    Route.get('/u/:id', 'Auth/ProfileController.index')
-}).prefix('/').middleware('auth')
+Route.get('/', 'Auth/HomeController.index').middleware('auth')
+Route.get('/logout', 'Auth/LoginController.logout').middleware('auth')
+Route.get('/u/:id', 'Auth/ProfileController.index').middleware('auth')
 
 
 Route.group(() => {
