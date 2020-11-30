@@ -10,6 +10,8 @@ export default class LoginController {
     }
 
     public async check({ request, session, response, auth }) {
+        if(auth.user) return response.redirect('/')
+
         const {email, password, remember} = request.all()
         const message = new Notification()
 
