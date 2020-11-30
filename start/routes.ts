@@ -43,5 +43,5 @@ Route.group(() => {
     Route.get('/profile', 'Auth/ProfileController.edit')
     Route.put('/profile', 'Auth/ProfileController.update')
     Route.get('/color', 'Config/NickColorController.index')
-    Route.post('/color', 'Config/NickColorController.edit')
+    Route.put('/color', 'Config/NickColorController.edit')
 }).prefix('/config').middleware('auth')
