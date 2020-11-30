@@ -15,11 +15,13 @@ export default class RegistersController {
         const { username, email, password, repeatPassword } = request.all()
 
         try {
-            user.username = username
-            user.email = email
-            user.password = password
-            user.photo = '/images/profile.png'
-            user.permission = 2
+            if(password == repeatPassword) {
+                user.username = username
+                user.email = email
+                user.password = password
+                user.photo = '/images/profile.png'
+                user.permission = 2
+            }
 
             const confirm = await user.save()
 
