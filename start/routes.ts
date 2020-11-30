@@ -23,7 +23,8 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.group(() => {
     Route.get('/', async ({ auth, response }) => {
         if(auth.user) {
-            return 'OK'
+            const user = await auth.authenticate()
+            return `${user.email}`
         } else {
             response.redirect('/login')
         }
