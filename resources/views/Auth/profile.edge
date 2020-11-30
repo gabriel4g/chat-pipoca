@@ -1,0 +1,53 @@
+@layout('layouts/app')
+
+@section('content')
+    <div class="div-bar">Perfil de 
+        <strong style="color: {{ user.color }};">
+            {{ user.username }}
+        </strong>
+    </div>
+    <div class="border-profile">
+        <img id="profile-img"src="{{ user.photo }}" alt="">
+        <div id="status-profile">
+            <strong>Usuário(a)</strong>
+            @if(auth.user.id == user_id)
+
+            @else
+                <a href=""><i class="fas fa-envelope"></i> Mensagem</a>
+            @endif
+        </div>
+    </div>
+    <div class="border-profile" style="display: flex; flex-direction: column">
+        <ul>
+            <li>Usuário ID: 
+                <strong>{{ user.id }}</strong>
+            </li>
+            <li>Último acesso: 
+                <strong>{{ user.last_acess? user.last_acess:''}}</strong>
+            </li>
+            <li>Sexo: 
+                <strong>{{ user.sex? user.sex:''}}</strong>
+            </li>
+            <li>Registrou-se: 
+                <strong>{{ user.created_at }}</strong>
+            </li>
+            <li>Localidade: 
+                <strong>{{ user.location? user.location:''}}</strong>
+            </li>
+            <li>Relacionamento: 
+                <strong>{{ user.relationship? user.relationship:''}}</strong>
+            </li>
+            <li>Orientação Sexual: 
+                <strong>{{ user.sexual_orientation? user.sexual_orientation:''}}</strong>
+            </li>
+        </ul>
+    </div>
+    <div class="border-profile">
+        <ul>
+            <li><a href="">Mais informações</a></li>
+            <li><a href="">Moderar usuário</a></li>
+            <li><a href="">Administrar usuário</a></li>
+            <li><a href="">Adicionar VIP</a></li>
+        </ul>
+    </div>
+@endsection
