@@ -12,7 +12,7 @@ export default class NickColorsController {
         }
     }
 
-    public async edit({request, response, session, auth}) {
+    public async update({request, response, session, auth}) {
         const message = new Notification()
         const user = await User.find(auth.user.id)
 
