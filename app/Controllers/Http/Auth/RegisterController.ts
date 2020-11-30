@@ -7,10 +7,10 @@ export default class RegistersController {
         return view.render('Auth/register')
     }
 
-    public async store({ request, session }) {
+    public async store({ request, session, response }) {
         const user = new User();
 
-        const { username, email, password, response } = request.all()
+        const { username, email, password } = request.all()
 
         try {
             user.username = username
