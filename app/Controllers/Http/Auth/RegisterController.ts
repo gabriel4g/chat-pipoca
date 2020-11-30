@@ -34,7 +34,8 @@ export default class RegistersController {
                 message.status(session, response)
             }
         }catch(err) {
-            
+            message.notificationFlash('danger', 'white', 'Não foi possivel salvar os dados!', 'exclamation')
+            message.status(session, response)
         }
     }
 }
