@@ -9,9 +9,9 @@
     <div class="border-profile">
         <img id="profile-img"src="{{ user.photo }}" alt="">
         <div id="status-profile">
-            @if(auth.user.permission == 0)
+            @if(user.permission == 0)
                 <strong>Administrador(a)</strong>
-            @elseif(auth.user.permission == 1)
+            @elseif(user.permission == 1)
                 <strong>Moderador(a)</strong>
             @else
                 <strong>Usuário(a)</strong>
