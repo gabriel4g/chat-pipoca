@@ -7,9 +7,9 @@
 <nav class="nav-border">
     @if(auth.user)
         <i class="fas fa-user"></i>
-        <a href="/user/{{ auth.user.id }}" style="color: {{ auth.user.user_color }}; 
+        <a href="/user/{{ user.id }}" style="color: {{ user.color }}; 
             font-weight: bold;">
-            {{ auth.user.username }}
+            {{ user.username }}
         </a>
         <i class="fas fa-sign-out-alt" style="margin-left: 4pt;"></i>
         <a href="/logout">Sair</a>
