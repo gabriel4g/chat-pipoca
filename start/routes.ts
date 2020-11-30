@@ -34,3 +34,7 @@ Route.group(() => {
     Route.get('/', 'Auth/RegisterController.index')
     Route.post('/', 'Auth/RegisterController.store')
 }).prefix('/register')
+
+Route.group(() => {
+    Route.get('/', 'Auth/ConfigController.index')
+}).prefix('/config').middleware('auth')
