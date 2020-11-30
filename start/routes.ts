@@ -36,12 +36,12 @@ Route.group(() => {
 }).prefix('/register')
 
 Route.group(() => {
-    Route.get('/', 'Auth/ConfigController.index')
+    Route.get('/', 'Config/ConfigController.index')
     Route.get('/upload', 'Config/ImageController.index')
     Route.put('/upload', 'Config/ImageController.store')
     Route.delete('/delete/img', 'Config/ImageController.destroy')
     Route.get('/profile', 'Auth/ProfileController.edit')
     Route.put('/profile', 'Auth/ProfileController.update')
-    Route.get('color', 'Config/NickColorController.index')
-    Route.put('color', 'Config/NickColorController.edit')
+    Route.get('/color', 'Config/NickColorController.index')
+    Route.put('/color', 'Config/NickColorController.edit')
 }).prefix('/config').middleware('auth')
