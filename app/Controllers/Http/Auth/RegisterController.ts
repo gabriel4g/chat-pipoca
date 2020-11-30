@@ -1,6 +1,7 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import User from 'App/Models/User'
+import Notifcation from 'App/Helpers/NotficationHelper'
 
 export default class RegistersController {
     public index({ view }) {
@@ -8,6 +9,7 @@ export default class RegistersController {
     }
 
     public async store({ request, session, response }) {
+        let message = new Notifcation()
         const user = new User();
 
         const { username, email, password, repeatPassword } = request.all()
@@ -18,15 +20,9 @@ export default class RegistersController {
             if(password == repeatPassword) {
                 user.password = password
             } else {
-                session.flash({
-                    notification: {
-                        type: 'danger',
-                        text: 'white',
-                        message: 'As senhas não conferem!',
-                        icon: 'exclamation'
-                    }
-                })
-                return response.redirect('back')
+                
+                message.notificationFlash('danger', 'white', 'As senhas não conferem!', 'exclamation')
+                message.status(session, response)
             }
             user.photo = '/images/profile.png'
             user.permission = 2
@@ -34,26 +30,12 @@ export default class RegistersController {
             const confirm = await user.save()
 
             if(confirm) {
-                session.flash({
-                    notification: {
-                        type: 'success',
-                        text: 'white',
-                        message: 'Conta criada com sucesso!',
-                        icon: 'check'
-                    }
-                })
-                return response.redirect('back')
+                message.notificationFlash('success', 'white', 'Conta criada com sucesso!', 'check')
+                message.status(session, response)
             }
         }catch(err) {
-            session.flash({
-                notification: {
-                    type: 'danger',
-                    text: 'white',
-                    message: 'Não foi possivel salvar os dados!',
-                    icon: 'exclamation'
-                }
-            })
-            return response.redirect('back')
+            message.notificationFlash('danger', 'white', 'Não foi possivel salvar os dados!', 'exclamation')
+            message.status(session, response)
         }
     }
 }
