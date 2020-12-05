@@ -11,7 +11,7 @@ export default class LoginController {
     }
 
     public async check({ request, session, response, auth }) {
-        const {email, password, remember} = request.all()
+        const {email, password} = request.all()
         const message = new Notification()
 
         const user = await User.query()
@@ -20,7 +20,7 @@ export default class LoginController {
 
         if(user) {
             if(Hash.verify(user.password, password)) {
-                auth.login(user, remember)
+                auth.login(user)
 
                 return response.redirect('/')
             }
