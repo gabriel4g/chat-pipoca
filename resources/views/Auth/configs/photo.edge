@@ -1,0 +1,17 @@
+@layout('layouts.app')
+@section('content')
+	<div class="div-bar">Atualizar foto</div>
+
+	@include('.imports.notification')
+	<form method="POST" action="upload" enctype="multipart/form-data" style="margin: 2% 0;">
+  		<div class="input-group mb-3 upload" style="width: 30%;">
+    			<input type="file" name="avatar" id="">
+  		</div>
+  		<div style="display: inline; margin: 0 auto; postion: absolute;">
+			<input class="btn btn-dark" style="width: 10%;" type="submit" value="Atualizar">
+			<button type="button" class="btn btn-danger">
+				<a href="/conf/upload/del">Deletar</a>
+			</button>
+		</div>
+	</form>
+@endsection
