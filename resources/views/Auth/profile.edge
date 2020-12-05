@@ -7,7 +7,11 @@
         </strong>
     </div>
     <div class="border-profile">
-        <img id="profile-img"src="/uploads/{{ user.photo }}" alt="">
+        @if(user.photo == '/images/profile.png')
+          <img id="profile-img"src="/images/profile.png" alt="">
+        @else
+          <img id="profile-img"src="/uploads/{{ user.photo }}" alt="">
+        @endif
         <div id="status-profile">
             @if(user.permission == 0)
                 <strong>Administrador(a)</strong>
