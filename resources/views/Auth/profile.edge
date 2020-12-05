@@ -51,9 +51,11 @@
     <div class="border-profile">
         <ul>
             <li><a href="">Mais informações</a></li>
-            <li><a href="">Moderar usuário</a></li>
-            <li><a href="">Administrar usuário</a></li>
-            <li><a href="">Adicionar VIP</a></li>
+            @if(auth.user.permission == 0)
+                <li><a href="">Moderar usuário</a></li>
+                <li><a href="">Administrar usuário</a></li>
+                <li><a href="">Adicionar VIP</a></li>
+            @endif
         </ul>
     </div>
 @endsection
