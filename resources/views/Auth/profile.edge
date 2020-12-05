@@ -1,13 +1,13 @@
 @layout('layouts/app')
 
 @section('content')
-    <div class="div-bar">Perfil de 
+    <div class="div-bar">Perfil de
         <strong style="color: {{ user.color }};">
             {{ user.username }}
         </strong>
     </div>
     <div class="border-profile">
-        <img id="profile-img"src="{{ user.photo }}" alt="">
+        <img id="profile-img"src="/uploads/{{ user.photo }}" alt="">
         <div id="status-profile">
             @if(user.permission == 0)
                 <strong>Administrador(a)</strong>
@@ -25,25 +25,25 @@
     </div>
     <div class="border-profile" style="display: flex; flex-direction: column">
         <ul>
-            <li>Usuário ID: 
+            <li>Usuário ID:
                 <strong>{{ user.id }}</strong>
             </li>
-            <li>Último acesso: 
+            <li>Último acesso:
                 <strong>{{ user.last_acess? user.last_acess:''}}</strong>
             </li>
-            <li>Sexo: 
+            <li>Sexo:
                 <strong>{{ user.sex? user.sex:''}}</strong>
             </li>
-            <li>Registrou-se: 
+            <li>Registrou-se:
                 <strong>{{ user.created_at }}</strong>
             </li>
-            <li>Localidade: 
+            <li>Localidade:
                 <strong>{{ user.location? user.location:''}}</strong>
             </li>
-            <li>Relacionamento: 
+            <li>Relacionamento:
                 <strong>{{ user.relationship? user.relationship:''}}</strong>
             </li>
-            <li>Orientação Sexual: 
+            <li>Orientação Sexual:
                 <strong>{{ user.sexual_orientation? user.sexual_orientation:''}}</strong>
             </li>
         </ul>
