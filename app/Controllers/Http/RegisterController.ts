@@ -4,7 +4,8 @@ import User from 'App/Models/User'
 import Notifcation from 'App/Helpers/NotficationHelper'
 
 export default class RegistersController {
-    public index({ view }) {
+    public index({ response, view, auth }) {
+        if(auth.user) return response.redirect('/')
         return view.render('Auth/register')
     }
 
