@@ -33,7 +33,7 @@ export default class User extends BaseModel {
 
   @column()
   public sexual_orientation: string
-  
+
   @column()
   public color: string
 
@@ -43,11 +43,9 @@ export default class User extends BaseModel {
   @column()
   public rememberMeToken?: string
 
-  @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  @column()
+  public createdAt: string
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
 
   @beforeSave()
   public static async hashPassword (user: User) {
