@@ -10,10 +10,9 @@ export default class DateHelper {
     let month = new Date(this.date).getUTCMonth() + 1
     let year = new Date(this.date).getUTCFullYear()
 
-    if(day <=9 && day > 0) {
-      return `0${day}/${month}/${year}`
-    } else {
-      return `${day}/${month}/${year}`
-    }
+    const toDifineDay = (day <= 9 && day > 0)? '0':''
+    const toDifineMonth = (month <= 9 && month > 0)? '0':''
+
+    return `${toDifineDay}${day}/${toDifineMonth}${month}/${year}`
   }
 }
