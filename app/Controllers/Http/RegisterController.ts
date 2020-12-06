@@ -37,6 +37,7 @@ export default class RegistersController {
            } else {
                 message.notificationFlash('danger', 'white', 'Não foi possivel criar conta, usuáriou ou email já existe!', 'exclamation')
                 message.status(session, response)
+                console.log(err)
            }
         }
     }
