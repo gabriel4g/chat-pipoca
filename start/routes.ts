@@ -33,7 +33,7 @@ Route.group(() => {
 Route.group(() => {
     Route.get('/', 'RegisterController.index')
     Route.post('/', 'RegisterController.store')
-}).prefix('/register')
+}).prefix('/join')
 
 Route.group(() => {
     Route.get('/', 'Config/ConfigController.index')
