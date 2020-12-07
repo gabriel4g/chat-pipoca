@@ -7,11 +7,7 @@
         </strong>
     </div>
     <div class="border-profile">
-        @if(user.photo == '/images/profile.png')
-          <img id="profile-img"src="{{avatar}}" alt="">
-        @else
-          <img id="profile-img"src="{{avatar}}" alt="">
-        @endif
+        <img id="profile-img"src="{{avatar}}" alt="">
         <div id="status-profile">
             @if(user.permission == 0)
                 <strong>Administrador(a)</strong>
@@ -36,7 +32,13 @@
                 <strong>{{ user.last_acess? user.last_acess:''}}</strong>
             </li>
             <li>Sexo:
-                <strong>{{ user.sex? user.sex:''}}</strong>
+                <strong>
+                  @if(user.sex == 'M')
+                    Masculino
+                  @elseif(user.sex == 'F')
+                    Feminino
+                  @endif
+                </strong>
             </li>
             <li>Registrou-se:
                 <strong>{{ date }}</strong>
