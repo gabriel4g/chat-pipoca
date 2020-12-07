@@ -47,16 +47,17 @@ export default class ProfilesController {
             USER.location = LOCATION
             USER.relationship = RELATIONSHIP
             USER.sexual_orientation = SEXUAL_ORIENTATION
+
+            await USER.save()
+
+            MESSAGE.notificationFlash('success', 'white', 'Dados atualizados!', 'check')
+            MESSAGE.status(session, response)
+
+
         } else {
-          return 'Conta apaga ou não existe!'
+          return 'Conta apagada ou não existe!'
         }
 
-        const CONFIRM = await USER.save()
-
-        if(CONFIRM) {
-          MESSAGE.notificationFlash('success', 'white', 'Conta criada com sucesso!', 'check')
-          MESSAGE.status(session, response)
-        }
         } catch(err) {
           MESSAGE.notificationFlash('danger', 'white', 'Erro ao salvar os dados!', 'exclamation')
           MESSAGE.status(session, response)
