@@ -36,7 +36,7 @@ export default class RegistersController {
                 MESSAGE.notificationFlash('danger', 'white', 'As senhas não batem!', 'exclamation')
                 MESSAGE.status(session, response)
            } else {
-                MESSAGE.notificationFlash('danger', 'white', 'Não foi possivel criar a conta, email já existe!', 'exclamation')
+                MESSAGE.notificationFlash('danger', 'white', 'Não foi possivel criar conta, email já existe!', 'exclamation')
                 MESSAGE.status(session, response)
                 console.log(err)
            }
