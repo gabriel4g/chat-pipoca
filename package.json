@@ -27,6 +27,7 @@
     "@adonisjs/repl": "^1.1.6",
     "@adonisjs/session": "^4.0.6",
     "@adonisjs/view": "^3.0.9",
+    "gravatar": "^1.8.1",
     "luxon": "^1.25.0",
     "mysql": "^2.18.1",
     "phc-argon2": "^1.0.11",
