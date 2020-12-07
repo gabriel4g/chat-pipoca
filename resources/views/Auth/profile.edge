@@ -8,9 +8,9 @@
     </div>
     <div class="border-profile">
         @if(user.photo == '/images/profile.png')
-          <img id="profile-img"src="/images/profile.png" alt="">
+          <img id="profile-img"src="{{avatar}}" alt="">
         @else
-          <img id="profile-img"src="/uploads/{{ user.photo }}" alt="">
+          <img id="profile-img"src="{{avatar}}" alt="">
         @endif
         <div id="status-profile">
             @if(user.permission == 0)
