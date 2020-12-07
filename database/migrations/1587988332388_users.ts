@@ -17,7 +17,7 @@ export default class UsersSchema extends BaseSchema {
       table.string('color', 7)
       table.integer('permission').notNullable() // 0 ADM, 1 MOD, 2 USER
       table.string('remember_me_token').nullable()
-      table.string('created_at', 55).defaultTo(`${new Date().toLocaleDateString()}`)
+      table.string('created_at', 55)
     })
   }
 

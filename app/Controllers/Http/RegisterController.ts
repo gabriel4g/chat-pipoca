@@ -22,6 +22,7 @@ export default class RegistersController {
                 user.password = password
                 user.photo = '/images/profile.png'
                 user.permission = 2
+                user.createdAt = `${new Date().toLocaleDateString()}`
             }
 
             const confirm = await user.save()
