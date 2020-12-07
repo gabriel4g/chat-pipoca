@@ -1,7 +1,7 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import User from 'App/Models/User'
-import Notifcation from 'App/Helpers/NotficationHelper'
+import Notification from 'App/Helpers/NotficationHelper'
 
 export default class RegistersController {
     public index({ response, view, auth }) {
@@ -10,34 +10,34 @@ export default class RegistersController {
     }
 
     public async store({ request, session, response }) {
-        let message = new Notifcation()
-        const user = new User();
+        const MESSAGE = new Notification()
+        const USER = new User();
 
-        const { username, email, password, repeatPassword } = request.all()
+        const { USERNAME, EMAIL, PASSWORD, REPEAT_PASSWORD } = request.all()
 
         try {
-            if(password == repeatPassword) {
-                user.username = username
-                user.email = email
-                user.password = password
-                user.photo = '/images/profile.png'
-                user.permission = 2
-                user.createdAt = `${new Date().toLocaleDateString()}`
+            if(PASSWORD == REPEAT_PASSWORD) {
+                USER.username = USERNAME
+                USER.email = EMAIL
+                USER.password = PASSWORD
+                USER.photo = '/images/profile.png'
+                USER.permission = 2
+                USER.createdAt = `${new Date().toLocaleDateString()}`
             }
 
-            const confirm = await user.save()
+            const CONFIRM = await USER.save()
 
-            if(confirm) {
-                message.notificationFlash('success', 'white', 'Conta criada com sucesso!', 'check')
-                message.status(session, response)
+            if(CONFIRM) {
+                MESSAGE.notificationFlash('success', 'white', 'Conta criada com sucesso!', 'check')
+                MESSAGE.status(session, response)
             }
         }catch(err) {
-           if(password != repeatPassword) {
-                message.notificationFlash('danger', 'white', 'As senhas não batem!', 'exclamation')
-                message.status(session, response)
+           if(PASSWORD != REPEAT_PASSWORD) {
+                MESSAGE.notificationFlash('danger', 'white', 'As senhas não batem!', 'exclamation')
+                MESSAGE.status(session, response)
            } else {
-                message.notificationFlash('danger', 'white', 'Não foi possivel criar conta, usuáriou ou email já existe!', 'exclamation')
-                message.status(session, response)
+                MESSAGE.notificationFlash('danger', 'white', 'Não foi possivel criar conta, usuáriou ou email já existe!', 'exclamation')
+                MESSAGE.status(session, response)
                 console.log(err)
            }
         }

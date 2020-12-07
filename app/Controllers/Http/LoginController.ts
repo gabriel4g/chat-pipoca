@@ -11,23 +11,23 @@ export default class LoginController {
     }
 
     public async check({ request, session, response, auth }) {
-        const {email, password} = request.all()
-        const message = new Notification()
+        const { EMAIL, PASSWORD } = request.all()
+        const MESSAGE = new Notification()
 
-        const user = await User.query()
-        .where('email', email)
+        const USER = await User.query()
+        .where('email', EMAIL)
         .first()
 
-        if(user) {
-            if(Hash.verify(user.password, password)) {
-                auth.login(user)
+        if(USER) {
+            if(Hash.verify(USER.password, PASSWORD)) {
+                auth.login(USER)
 
                 return response.redirect('/')
             }
         }
 
-        message.notificationFlash('danger', 'white', 'E-mail ou senha, estão incorretos!', 'exclamation')
-        message.status(session, response)
+        MESSAGE.notificationFlash('danger', 'white', 'E-mail ou senha, estão incorretos!', 'exclamation')
+        MESSAGE.status(session, response)
     }
 
     public async logout({ auth, response }) {

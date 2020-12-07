@@ -7,16 +7,16 @@ import gravatar from 'gravatar'
 export default class ProfilesController {
     public async index({ params, response, view, auth }) {
         if(auth.user) {
-            const user = await User.find(params.id)
-            const date = new DateHelper()
+            const USER = await User.find(params.id)
+            const DATE = new DateHelper()
 
-            if(user) {
-              date.Date(user.createdAt)
+            if(USER) {
+              DATE.Date(USER.createdAt)
                 return view.render('Auth/profile', {
-                    user: user.toJSON(),
-                    date: date.generateDate(),
+                    user: USER.toJSON(),
+                    date: DATE.generateDate(),
                     user_id: params.id,
-                    avatar: gravatar.url(user.email, { s: '100', r: 'g', d: 'robohash' }, true)
+                    avatar: gravatar.url(USER.email, { s: '100', r: 'g', d: 'robohash' }, true)
                 })
             } else return response.redirect('/')
         } else {

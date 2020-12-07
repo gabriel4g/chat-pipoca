@@ -3,8 +3,8 @@
 export default class HomeController {
     public async index({ auth, response, view }) {
         if(auth.user) {
-                const user = await auth.authenticate()
-                return view.render('Auth/home', { user })
+                const USER = await auth.authenticate()
+                return view.render('Auth/home', { USER })
         } else {
                 response.redirect('/login')
         }

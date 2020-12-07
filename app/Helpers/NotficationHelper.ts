@@ -1,4 +1,4 @@
-export default class NotificationMessage {
+export default class NotificationHelper {
     type: string
     text: string
     message: string

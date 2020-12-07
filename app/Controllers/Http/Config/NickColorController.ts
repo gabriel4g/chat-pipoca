@@ -13,23 +13,23 @@ export default class NickColorsController {
     }
 
     public async update({request, response, session, auth}) {
-        const message = new Notification()
-        const user = await User.find(auth.user.id)
+        const MESSAGE = new Notification()
+        const USER = await User.find(auth.user.id)
 
         try {
-            if(user) {
-                user.color = request.input('color')
+            if(USER) {
+                USER.color = request.input('color')
 
-                message.notificationFlash('success', 'white', 'Cor alterada com sucesso!', 'check')
-                message.status(session, response)
-                await user.save()
+                MESSAGE.notificationFlash('success', 'white', 'Cor alterada com sucesso!', 'check')
+                MESSAGE.status(session, response)
+                await USER.save()
 
                 response.redirect('back')
             }
         } catch(err) {
-            message.notificationFlash('danger', 'white', 'Algum erro aconteceu ao salvar!', 'exclamation')
-            message.status(session, response)
-            
+            MESSAGE.notificationFlash('danger', 'white', 'Algum erro aconteceu ao salvar!', 'exclamation')
+            MESSAGE.status(session, response)
+
             console.log(err)
 
             response.redirect('back')
