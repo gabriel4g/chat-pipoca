@@ -3,7 +3,13 @@
 	<div class="div-bar">Atualizar foto</div>
 
 	@include('.imports.notification')
-	<form method="POST" action="upload" enctype="multipart/form-data" style="margin: 2% 0;">
+  <div class="bg-danger text-white" id="notification">
+		<i class="fas fa-exclamation"></i>
+		Foi decidido a integração com o gravatar para o uso de avatares no site,
+    o upload do mesmo foi descontinuado a partir da versão 0.0.2b e portanto nas
+    proximas atualizações está página e suas devidas funções serão removidas.
+	</div>
+	<form method="POST" enctype="multipart/form-data" style="margin: 2% 0;">
   		<div class="input-group mb-3 upload" style="width: 30%;">
     			<input type="file" name="avatar" id="">
   		</div>
