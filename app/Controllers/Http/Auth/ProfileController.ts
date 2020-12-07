@@ -2,6 +2,7 @@
 
 import User from 'App/Models/User'
 import DateHelper from 'App/Helpers/DateHelper'
+import gravatar from 'gravatar'
 
 export default class ProfilesController {
     public async index({ params, response, view, auth }) {
@@ -14,7 +15,8 @@ export default class ProfilesController {
                 return view.render('Auth/profile', {
                     user: user.toJSON(),
                     date: date.generateDate(),
-                    user_id: params.id
+                    user_id: params.id,
+                    avatar: gravatar.url(user.email, { s: '100', r: 'g', d: 'robohash' }, true)
                 })
             } else return response.redirect('/')
         } else {
