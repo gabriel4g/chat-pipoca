@@ -51,7 +51,7 @@ web: ENV_SILENT=true npm start
 
 #### Rotas
 
-> - [X] /login (PUT) validação de usuário no BD
+> - [X] /login (POST) validação de usuário no BD
 > - [X] /register (POST) criação de usuário no BD
 > - [ ] /user/delete (POST) rota para deletar usuário do banco de dados
 > - [ ] /user/update/:id (GET) rota para editar dados do usuário no banco de dados
