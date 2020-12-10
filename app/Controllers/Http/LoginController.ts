@@ -2,7 +2,7 @@
 
 import User from 'App/Models/User'
 import Hash from '@ioc:Adonis/Core/Hash'
-import Notification from 'App/Helpers/NotficationHelper'
+import Notification from 'App/Helpers/NotificationHelper'
 
 export default class LoginController {
     public index({ view, auth, response }) {
@@ -26,7 +26,7 @@ export default class LoginController {
             }
         }
 
-        MESSAGE.notificationFlash('danger', 'white', 'E-mail ou senha, estão incorretos!', 'exclamation')
+        MESSAGE.notificationFlash('warning', '', 'E-mail ou senha, estão incorretos!', 'exclamation-triangle')
         MESSAGE.status(session, response)
     }
 

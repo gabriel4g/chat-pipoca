@@ -2,7 +2,7 @@
 
 import User from 'App/Models/User'
 import DateHelper from 'App/Helpers/DateHelper'
-import Notification from 'App/Helpers/NotficationHelper'
+import Notification from 'App/Helpers/NotificationHelper'
 import gravatar from 'gravatar'
 
 export default class ProfilesController {

@@ -1,7 +1,7 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import User from 'App/Models/User'
-import Notification from 'App/Helpers/NotficationHelper'
+import Notification from 'App/Helpers/NotificationHelper'
 
 export default class RegistersController {
     public index({ response, view, auth }) {
@@ -28,15 +28,15 @@ export default class RegistersController {
             const CONFIRM = await USER.save()
 
             if(CONFIRM) {
-                MESSAGE.notificationFlash('success', 'white', 'Conta criada com sucesso!', 'check')
+                MESSAGE.notificationFlash('success', '', 'Conta criada com sucesso!', 'check')
                 MESSAGE.status(session, response)
             }
         }catch(err) {
            if(PASSWORD != REPEAT_PASSWORD) {
-                MESSAGE.notificationFlash('danger', 'white', 'As senhas não batem!', 'exclamation')
+                MESSAGE.notificationFlash('warning', '', 'As senhas não batem!', 'exclamation-triangle')
                 MESSAGE.status(session, response)
            } else {
-                MESSAGE.notificationFlash('danger', 'white', 'Não foi possivel criar conta, email já existe!', 'exclamation')
+                MESSAGE.notificationFlash('danger', '', 'Não foi possivel criar conta, email já existe!', 'exclamation')
                 MESSAGE.status(session, response)
                 console.log(err)
            }

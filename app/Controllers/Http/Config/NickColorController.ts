@@ -1,7 +1,7 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import User from 'App/Models/User'
-import Notification from 'App/Helpers/NotficationHelper'
+import Notification from 'App/Helpers/NotificationHelper'
 
 export default class NickColorsController {
     public async index({ response, view, auth }) {
