@@ -18,7 +18,7 @@ body {
 }
 
 .nav-border-min {
-    border: 1px solid #333; 
+    border: 1px solid #333;
     margin: 4px 0;
     padding: 6px;
 }
@@ -56,7 +56,7 @@ a:hover {
 .div-bar {
     text-align: center;
     font-weight: bold;
-    margin: 1px; 
+    margin: 1px;
     padding: 4px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -67,7 +67,7 @@ a:hover {
 
 .input-space { margin: 1px; }
 
-input[type="text"], input[type="password"],input[type="number"], 
+input[type="text"], input[type="password"],input[type="number"],
 input, option, select, textarea {
     color: #ccc;
     padding: 6pt;
@@ -129,7 +129,7 @@ input, option, select, textarea {
     }
 }
 
-button[type="submit"] {
+.btn-style {
     display: block;
     width: 70%;
     margin: 1% auto 0 auto;
