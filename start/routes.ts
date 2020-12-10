@@ -45,3 +45,9 @@ Route.group(() => {
     Route.get('/color', 'Config/NickColorController.index')
     Route.post('/color', 'Config/NickColorController.update')
 }).prefix('/config').middleware('auth')
+
+Route.group(() => {
+  Route.get('/', 'Config/Panel/PanelController.index')
+  Route.get('/adm', 'Config/Panel/AdmController.index')
+  Route.get('/mod', 'Config/Panel/ModController.index')
+}).prefix('/panel').middleware('auth')
