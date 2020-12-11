@@ -1,7 +1,13 @@
 {
   "name": "chat-pipoca",
   "version": "0.0.2b",
+  "description": "Comunidade wap refeita em nodejs",
   "private": true,
+  "author": {
+    "name": "Gabriel Oliveira",
+    "email": "grupo.mariz@outlook.com",
+    "url": "https://github.com/gabriel4g"
+  },
   "license": "GPL-3.0",
   "scripts": {
     "build": "node ace build --production",
@@ -21,12 +27,12 @@
     "youch-terminal": "^1.0.1"
   },
   "dependencies": {
-    "@adonisjs/auth": "^5.0.2",
+    "@adonisjs/auth": "^5.1.1",
     "@adonisjs/core": "^5.0.4-preview-rc-2.1",
-    "@adonisjs/lucid": "^9.0.3",
+    "@adonisjs/lucid": "^10.0.0",
     "@adonisjs/repl": "^1.1.6",
     "@adonisjs/session": "^4.0.6",
-    "@adonisjs/view": "^3.0.9",
+    "@adonisjs/view": "^3.1.0",
     "gravatar": "^1.8.1",
     "luxon": "^1.25.0",
     "mysql": "^2.18.1",
