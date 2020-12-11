@@ -42,6 +42,7 @@ Route.group(() => {
     Route.delete('/delete/img', 'Config/ImageController.destroy')
     Route.get('/profile', 'Auth/ProfileController.edit')
     Route.post('/profile', 'Auth/ProfileController.update')
+    Route.get('/profile/remove', 'Auth/ProfileController.destroy')
     Route.get('/color', 'Config/NickColorController.index')
     Route.post('/color', 'Config/NickColorController.update')
 }).prefix('/config').middleware('auth')
