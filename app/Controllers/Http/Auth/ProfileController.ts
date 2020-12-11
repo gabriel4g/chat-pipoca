@@ -65,7 +65,17 @@ export default class ProfilesController {
         }
     }
 
-    public async destroy() {
+    public async destroy({ auth }) {
+      const USER = await User.find(auth.user.id);
 
+      try {
+        if(USER) {
+          USER.delete()
+          auth.logout();
+
+        }
+      } catch(err) {
+
+      }
     }
 }
