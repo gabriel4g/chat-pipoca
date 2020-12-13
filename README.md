@@ -19,7 +19,7 @@ $ git clone https://github.com/gabriel4g/chat-pipoca.git
 # Acesse a pasta do projeto terminal/cmd
 $ cd api-calorias
 
-# No windows
+# No windows "Powershell modo administrador"
 chat-pipoca> npm install --global windows-build-tools
 
 # Instale as dependências
