@@ -26,7 +26,6 @@ export default class RegistersController {
                 USER.username = USERNAME
                 USER.email = EMAIL
                 USER.password = PASSWORD
-                USER.photo = '/images/profile.png'
                 USER.permission = 2
                 USER.createdAt = `${new Date().toLocaleDateString()}`
             }
