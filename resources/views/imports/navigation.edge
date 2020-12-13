@@ -1,13 +1,13 @@
 <nav class="nav-border" style="margin: 18pt 0 0">
     <p><i class="fas fa-bullhorn"></i>
         <strong> Mural da equipe:</strong>
-        Aqui vai ficar textos ligados ao banco de dados.
-    </p> 
+        {{{ message }}}
+    </p>
 </nav>
 <nav class="nav-border">
     @if(auth.user)
         <i class="fas fa-user"></i>
-        <a href="/u/{{ auth.user.id }}" style="color: {{ auth.user.color }}; 
+        <a href="/u/{{ auth.user.id }}" style="color: {{ auth.user.color }};
             font-weight: bold;">
             {{ auth.user.username }}
         </a>
