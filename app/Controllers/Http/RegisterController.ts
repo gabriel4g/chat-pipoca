@@ -1,17 +1,23 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import User from 'App/Models/User'
+import TeamWall from 'App/Models/TeamWall'
 import Notification from 'App/Helpers/NotificationHelper'
 
 export default class RegistersController {
-    public index({ response, view, auth }) {
-        if(auth.user) return response.redirect('/')
-        return view.render('Auth/register')
+    public async index({ response, view, auth }) {
+      const MESSAGE = await TeamWall.find(1)
+
+      if(auth.user) return response.redirect('/')
+
+      return view.render('Auth/register', {
+        message: (MESSAGE)? MESSAGE.message:''
+      })
     }
 
     public async store({ request, session, response }) {
         const MESSAGE = new Notification()
-        const USER = new User();
+        const USER = new User()
 
         const { USERNAME, EMAIL, PASSWORD, REPEAT_PASSWORD } = request.all()
 
