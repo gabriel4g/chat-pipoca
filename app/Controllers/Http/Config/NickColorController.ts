@@ -1,15 +1,19 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import User from 'App/Models/User'
+import TeamWall from 'App/Models/TeamWall'
 import Notification from 'App/Helpers/NotificationHelper'
 
 export default class NickColorsController {
     public async index({ response, view, auth }) {
-        if(auth.user) {
-            return view.render('Auth/configs/color')
-        } else {
-            response.redirect('/login')
-        }
+      const MESSAGE = await TeamWall.find(1)
+      if(auth.user) {
+        return view.render('Auth/configs/color', {
+          message: (MESSAGE)? MESSAGE.message:''
+        })
+      } else {
+          response.redirect('/login')
+      }
     }
 
     public async update({request, response, session, auth}) {
