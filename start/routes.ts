@@ -48,7 +48,8 @@ Route.group(() => {
 }).prefix('/config').middleware('auth')
 
 Route.group(() => {
-  Route.get('/', 'Config/Panel/PanelController.index')
   Route.get('/adm', 'Config/Panel/AdmController.index')
   Route.get('/mod', 'Config/Panel/ModController.index')
+  Route.get('/mod/teamwall', 'Config/Panel/Mod/TeamWallController.index')
+  Route.post('/mod/teamwall', 'Config/Panel/Mod/TeamWallController.store')
 }).prefix('/panel').middleware('auth')
