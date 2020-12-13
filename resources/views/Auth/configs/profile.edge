@@ -29,8 +29,15 @@
             </div>
         </label>
         <label for="" class="input-space" style="margin-top: -10pt;">
+          Status:
+          <input type="text" name="STATUS" id=""
+          style="height:40px; font-size:17px;"
+          placeholder="Status" maxlength="40"
+          value="{{(user.status)? user.status:''}}">
+      </label>
+        <label for="" class="input-space" style="margin-top: -10pt;">
             Localidade:
-            <input type="text" name="LOCATION" id=""
+            <input type="text" name="LOCATION" id="" maxlength="122"
             style="height:40px; font-size:17px;"
             placeholder="Localidade"
             value="{{(user.location)? user.location:''}}">
@@ -55,7 +62,7 @@
                   Divorciado(a)
               </option>
               <option value="viúvo(a)"
-                  {{(user.relationship == 'viúvo (a)')? 'selected':''}}>
+                  {{(user.relationship == 'viúvo(a)')? 'selected':''}}>
                   Viúvo(a)
               </option>
 
