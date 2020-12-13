@@ -1,13 +1,17 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import User from 'App/Models/User'
+import TeamWall from 'App/Models/TeamWall'
 import Hash from '@ioc:Adonis/Core/Hash'
 import Notification from 'App/Helpers/NotificationHelper'
 
 export default class LoginController {
-    public index({ view, auth, response }) {
+    public async index({ view, auth, response }) {
+      const MESSAGE = await TeamWall.find(1)
         if(auth.user) return response.redirect('/')
-        return view.render('Auth/login')
+        return view.render('Auth/login', {
+          message: (MESSAGE)? MESSAGE.message:''
+        })
     }
 
     public async check({ request, session, response, auth }) {
