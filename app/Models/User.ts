@@ -19,7 +19,7 @@ export default class User extends BaseModel {
   public password: string
 
   @column()
-  public photo: string
+  public status: string
 
   @column()
   public sex: string
