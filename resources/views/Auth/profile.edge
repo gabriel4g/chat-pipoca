@@ -24,6 +24,13 @@
         </div>
     </div>
     <div class="border-profile" style="display: flex; flex-direction: column">
+      <ul>
+        <li style="text-align: center;">Status:
+          <strong>{{ (user.status)? user.status:'' }}</strong>
+        </li>
+      </ul>
+    </div>
+    <div class="border-profile" style="display: flex; flex-direction: column">
         <ul>
             <li>Usuário ID:
                 <strong>{{ user.id }}</strong>
