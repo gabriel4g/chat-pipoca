@@ -42,12 +42,13 @@ export default class ProfilesController {
         const USER = await User.find(auth.user.id)
         const MESSAGE = new Notification()
 
-        const { SEX, LOCATION, RELATIONSHIP, SEXUAL_ORIENTATION } = request.all()
+        const { SEX, LOCATION, STATUS, RELATIONSHIP, SEXUAL_ORIENTATION } = request.all()
 
         try {
           if(USER) {
             USER.sex = SEX
             USER.location = LOCATION
+            USER.status = STATUS
             USER.relationship = RELATIONSHIP
             USER.sexual_orientation = SEXUAL_ORIENTATION
 
@@ -68,14 +69,15 @@ export default class ProfilesController {
         }
     }
 
-    public async destroy({ auth }) {
+    public async destroy({ response, auth }) {
       const USER = await User.find(auth.user.id);
 
       try {
         if(USER) {
           USER.delete()
-          auth.logout();
+          await auth.logout();
 
+          return response.redirec('/login')
         }
       } catch(err) {
 
