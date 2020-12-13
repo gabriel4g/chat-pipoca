@@ -1,12 +1,14 @@
 // import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 import User from 'App/Models/User'
+import TeamWall from 'App/Models/TeamWall'
 import DateHelper from 'App/Helpers/DateHelper'
 import Notification from 'App/Helpers/NotificationHelper'
 import gravatar from 'gravatar'
 
 export default class ProfilesController {
     public async index({ params, response, view, auth }) {
+      const MESSAGE = await TeamWall.find(1)
         if(auth.user) {
             const USER = await User.find(params.id)
             const DATE = new DateHelper()
@@ -15,6 +17,7 @@ export default class ProfilesController {
               DATE.Date(USER.createdAt)
                 return view.render('Auth/profile', {
                     user: USER.toJSON(),
+                    message: (MESSAGE)? MESSAGE.message:'',
                     date: DATE.generateDate(),
                     user_id: params.id,
                     avatar: gravatar.url(USER.email, { s: '100', r: 'g', d: 'robohash' }, true)
