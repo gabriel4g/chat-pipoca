@@ -160,3 +160,21 @@ textarea{ font-size:17px; }
     text-align: center;
     border-radius: 6pt;
 }
+
+
+///////
+/**
+ * Demo Styl
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
