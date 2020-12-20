@@ -3,8 +3,12 @@
 body {
     background-color: black;
     border: 2px solid #75c1ff;
-    padding: 2px;
+    padding: 2pt;
     color: #ccc;
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
 }
 
 .nav-border {
