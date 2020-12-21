@@ -12,6 +12,9 @@ export default class Chat extends BaseModel {
  public messages: string
 
  @column()
+ public createdAt: string
+
+ @column()
   public userId: number
 
   @belongsTo(() => User, {
