@@ -83,7 +83,7 @@ a:hover {
 .input-space { margin: 1px; }
 
 input[type="text"], input[type="password"],input[type="number"],
-input, option, select, textarea {
+input, option, textarea {
     color: #ccc;
     padding: 6pt;
     border-radius:3px;
@@ -93,6 +93,20 @@ input, option, select, textarea {
     background-color:#111111;
     margin: 0 auto;
     width: 70%;
+}
+
+select {
+  color: #ccc;
+  padding: 4pt;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border: 1px #333 solid;
+  background-color:#111111;
+  display: block;
+  margin: 0 auto;
+  width: 6%;
+
 }
 
 ::placeholder {
