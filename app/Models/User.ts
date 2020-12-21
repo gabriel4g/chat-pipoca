@@ -2,8 +2,11 @@ import Hash from '@ioc:Adonis/Core/Hash'
 import {
   column,
   beforeSave,
+  HasMany,
+  hasMany,
   BaseModel,
 } from '@ioc:Adonis/Lucid/Orm'
+import Chat from 'App/Models/Chat'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -44,7 +47,6 @@ export default class User extends BaseModel {
 
   @column()
   public createdAt: string
-
 
   @beforeSave()
   public static async hashPassword (user: User) {
