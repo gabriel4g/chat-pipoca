@@ -13,6 +13,7 @@ export default class Chats extends BaseSchema {
       .onDelete('CASCADE')
       .onUpdate('CASCADE')
       table.string('messages', 160).notNullable()
+      table.string('created_at', 55).notNullable()
     })
   }
 
