@@ -26,6 +26,13 @@ Route.get('/u/:id', 'Auth/ProfileController.index').middleware('auth')
 
 
 Route.group(() => {
+  Route.post('/', 'Auth/HomeController.chat')
+  Route.get('/edit/:id', 'Auth/HomeController.chatEdit')
+  Route.post('/edit/:id', 'Auth/HomeController.chatUpdate')
+  Route.get('/delete/:id', 'Auth/HomeController.chatDelete')
+}).prefix('/chat').middleware('auth')
+
+Route.group(() => {
     Route.get('/', 'LoginController.index')
     Route.post('/', 'LoginController.check')
 }).prefix('/login')
