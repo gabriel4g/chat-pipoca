@@ -13,15 +13,22 @@
         @include('imports/upload')
 
         <button type="submit" class="btn btn-style btn-dark">Enviar</button>
-            <nav class="nav-border-min">
-                <img id="profile-img"src="/images/profile.svg" alt=""
-                    style="width: 30px; height: 30px; margin: 4px 0 0 2pt;">
-                    <a href=""><strong>USER</strong></a>
-                    <p>Esté texto foi enviado para o banco.</p>
-                    <div style="margin: -18pt 4pt 0 0; float: right;">
-                        Há 5 horas atrás <a href="">Mais</a>
-                    </div>
-            </nav>
+        @each(chat in chats)
+        <nav class="nav-border-min">
+          <img id="profile-img"src="{{ avatar.url(chat.$preloaded.user.email , { s: '100', r: 'g', d: 'robohash' }, true) }}" alt=""
+              style="width: 30px; height: 30px; margin: 4px 0 0 2pt; ">
+              <a href="" style="color: {{ chat.$preloaded.user.color }};"><strong>{{ chat.$preloaded.user.username }}</strong></a>
+              <p>{{ chat.$attributes.messages }}</p>
+              <div style="margin: -18pt 4pt 0 0; float: right;">
+                  Há 5 horas atrás <a href="">Mais</a>
+              </div>
+          </nav>
+        @endeach
+        <select name="" id="" onchange="location = this.value;">
+          @each(anchor in chats.getUrlsForRange(1, chats.lastPage))
+            <option value="{{anchor.url}}" {{(qparams == anchor.page)? 'selected':''}}>{{ anchor.page }}</option>
+          @endeach
+        </select>
     </nav>
     <div class="div-blue" style="margin-top: 2%;">
         <i class="fas fa-hand-point-right"></i>
