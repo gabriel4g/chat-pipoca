@@ -1,5 +1,6 @@
 export default class DateHelper {
   date: string
+  hour: string
 
   Date(date) {
     this.date = date
