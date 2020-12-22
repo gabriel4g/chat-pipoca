@@ -3,13 +3,18 @@
 import User from 'App/Models/User'
 import TeamWall from 'App/Models/TeamWall'
 import Notification from 'App/Helpers/NotificationHelper'
+import Light from 'App/Locales/style/styleLight'
+import Dark from 'App/Locales/style/styleDark'
+import StyleHelper from 'App/Helpers/StyleHelper'
 
 export default class NickColorsController {
     public async index({ response, view, auth }) {
       const MESSAGE = await TeamWall.find(1)
       if(auth.user) {
         return view.render('Auth/configs/color', {
-          message: (MESSAGE)? MESSAGE.message:''
+          message: (MESSAGE)? MESSAGE.message:'',
+          style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+          styleDefault: StyleHelper.style()
         })
       } else {
           response.redirect('/login')
