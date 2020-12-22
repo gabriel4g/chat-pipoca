@@ -13,7 +13,8 @@ export default class LoginController {
         if(auth.user) return response.redirect('/')
         return view.render('Auth/login', {
           message: (MESSAGE)? MESSAGE.message:'',
-          style: StyleLight
+          style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+          styleDefault: StyleHelper.style()
         })
     }
 

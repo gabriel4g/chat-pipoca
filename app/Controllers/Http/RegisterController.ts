@@ -3,7 +3,9 @@
 import User from 'App/Models/User'
 import TeamWall from 'App/Models/TeamWall'
 import Notification from 'App/Helpers/NotificationHelper'
-import StyleLight from 'App/Locales/style/styleLight'
+import Light from 'App/Locales/style/styleLight'
+import Dark from 'App/Locales/style/styleDark'
+import StyleHelper from 'App/Helpers/StyleHelper'
 
 
 export default class RegistersController {
@@ -14,7 +16,8 @@ export default class RegistersController {
 
       return view.render('Auth/register', {
         message: (MESSAGE)? MESSAGE.message:'',
-        style: StyleLight
+        style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+        styleDefault: StyleHelper.style()
       })
     }
 
