@@ -3,6 +3,8 @@
 import User from 'App/Models/User'
 import TeamWall from 'App/Models/TeamWall'
 import Notification from 'App/Helpers/NotificationHelper'
+import StyleLight from 'App/Locales/style/styleLight'
+
 
 export default class RegistersController {
     public async index({ response, view, auth }) {
@@ -11,7 +13,8 @@ export default class RegistersController {
       if(auth.user) return response.redirect('/')
 
       return view.render('Auth/register', {
-        message: (MESSAGE)? MESSAGE.message:''
+        message: (MESSAGE)? MESSAGE.message:'',
+        style: StyleLight
       })
     }
 
