@@ -4,7 +4,11 @@ import User from 'App/Models/User'
 import TeamWall from 'App/Models/TeamWall'
 import DateHelper from 'App/Helpers/DateHelper'
 import Notification from 'App/Helpers/NotificationHelper'
+import Light from 'App/Locales/style/styleLight'
+import Dark from 'App/Locales/style/styleDark'
+import StyleHelper from 'App/Helpers/StyleHelper'
 import gravatar from 'gravatar'
+
 
 export default class ProfilesController {
     public async index({ params, response, view, auth }) {
@@ -20,6 +24,8 @@ export default class ProfilesController {
                     message: (MESSAGE)? MESSAGE.message:'',
                     date: DATE.generateDate(),
                     user_id: params.id,
+                    style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+                    styleDefault: StyleHelper.style(),
                     avatar: gravatar.url(USER.email, { s: '100', r: 'g', d: 'robohash' }, true)
                 })
             } else return response.redirect('/')
@@ -30,8 +36,12 @@ export default class ProfilesController {
 
     public async edit({ response, view, auth }) {
         if(auth.user) {
+          const MESSAGE = await TeamWall.find(1)
             return view.render('Auth/configs/profile', {
-              user: auth.user
+              user: auth.user,
+              message: (MESSAGE)? MESSAGE.message:'',
+              style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+              styleDefault: StyleHelper.style()
             })
         } else {
             response.redirect('/login')
