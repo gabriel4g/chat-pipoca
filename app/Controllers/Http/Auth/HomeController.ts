@@ -4,6 +4,9 @@ import TeamWall from 'App/Models/TeamWall'
 import Notification from 'App/Helpers/NotificationHelper'
 import Chat from 'App/Models/Chat'
 import gravatar from 'gravatar'
+import StyleHelper from 'App/Helpers/StyleHelper'
+import Dark from 'App/Locales/style/styleDark'
+import Light from 'App/Locales/style/styleLight'
 
 
 export default class HomeController {
@@ -20,13 +23,16 @@ export default class HomeController {
 
       const MESSAGE = await TeamWall.find(1)
         if(auth.user) {
+          console.log(StyleHelper.styleSecondary())
                 const USER = await auth.authenticate()
                 return view.render('Auth/home', {
                   user: USER,
                   message: (MESSAGE)? MESSAGE.message:'',
                   chats: CHAT,
                   avatar: gravatar,
-                  qparams: PAGE
+                  qparams: PAGE,
+                  style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+                  styleDefault: StyleHelper.style()
                 })
         } else {
                 response.redirect('/login')
@@ -65,7 +71,9 @@ export default class HomeController {
 
     return view.render('Auth/home', {
       editMessage: CHAT.messages,
-      id: MESSAGE_ID
+      id: MESSAGE_ID,
+      style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+      styleDefault: StyleHelper.style()
     })
 
   }
