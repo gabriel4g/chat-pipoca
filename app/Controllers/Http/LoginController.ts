@@ -4,7 +4,9 @@ import User from 'App/Models/User'
 import TeamWall from 'App/Models/TeamWall'
 import Hash from '@ioc:Adonis/Core/Hash'
 import Notification from 'App/Helpers/NotificationHelper'
-import StyleLight from 'App/Locales/style/styleLight'
+import Light from 'App/Locales/style/styleLight'
+import Dark from 'App/Locales/style/styleDark'
+import StyleHelper from 'App/Helpers/StyleHelper'
 
 
 export default class LoginController {
