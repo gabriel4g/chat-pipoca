@@ -4,13 +4,16 @@ import User from 'App/Models/User'
 import TeamWall from 'App/Models/TeamWall'
 import Hash from '@ioc:Adonis/Core/Hash'
 import Notification from 'App/Helpers/NotificationHelper'
+import StyleLight from 'App/Locales/style/styleLight'
+
 
 export default class LoginController {
     public async index({ view, auth, response }) {
       const MESSAGE = await TeamWall.find(1)
         if(auth.user) return response.redirect('/')
         return view.render('Auth/login', {
-          message: (MESSAGE)? MESSAGE.message:''
+          message: (MESSAGE)? MESSAGE.message:'',
+          style: StyleLight
         })
     }
 
