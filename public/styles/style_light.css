@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+body {
+    background-color: white;
+    border: 2px solid #75c1ff;
+    padding: 2px;
+    color: rgb(92, 91, 91);
+}
+
+.nav-border {
+    margin: 1px;
+    padding: 4px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 2px #ccc solid;
+    background-color: white;
+}
+
+.nav-border-min {
+    border: 1px solid #333;
+    margin: 4px 0;
+    padding: 6px;
+}
+
+.div-blue {
+    text-align:center;
+    font-weight: bold;
+    color: #005064;
+    background-color: white;
+    background-image: url('../img/azulescuro.png');
+    background-repeat: repeat-x;
+    background-position: 50% top;
+    margin: 1px;
+    padding: 4px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #005064;
+}
+
+.upload, .dropdown {
+    display: inline;
+}
+
+a {
+    color: #124f81;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.div-bar {
+    text-align: center;
+    font-weight: bold;
+    margin: 1px;
+    padding: 4px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px #cecece solid;
+    background-color: white;
+}
+
+.input-space { margin: 1px; }
+
+input[type="text"], input[type="password"],input[type="number"],
+input, option, textarea {
+    color: rgb(95, 94, 94);
+    padding: 6pt;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border: 1px #ccc solid;
+    background-color:white;
+    margin: 0 auto;
+    width: 70%;
+}
+
+select {
+  color: black;
+  padding: 4pt;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border: 1px #333 solid;
+  background-color: white;
+  display: block;
+  margin: 0 auto;
+  width: 44pt;
+
+}
+
+::placeholder {
+    color: black;
+}
+
+.border-profile {
+    border-radius: 3px;
+    margin: 4px 0;
+    border: 1px solid #333;
+    border-left-width: 5px;
+    padding: 4pt;
+}
+
+#status-profile {
+    float: right;
+    display: flex;
+    margin: 8pt 16% 0;
+    flex-direction: column;
+    text-align: center;
+}
+
+#profile-img {
+    margin-left: 8%;
+    padding: 2px;
+    width: 70px;
+    height: 70px;
+    border: 1px solid #333;
+    border-radius: 3px;
+}
+
+@media only screen and (min-width: 800px) {
+    #check {
+        margin-left: 8em;
+    }
+
+    #remember {
+        margin-left: -5em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #check {
+        margin-left: -3em;
+    }
+
+    #remember {
+        margin-left: 2em;
+    }
+}
+
+.btn-style {
+    display: block;
+    width: 70%;
+    margin: 1% auto 0 auto;
+}
+
+ul {
+    list-style: none;
+    margin: 0 0 0 -30pt;
+}
+
+footer {
+    text-align: center;
+    font-size: 12pt;
+    padding: 4pt;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+textarea{ font-size:17px; }
+
+#notification {
+    margin: 1% 1%;
+    padding: 4pt;
+    text-align: center;
+    border-radius: 6pt;
+}

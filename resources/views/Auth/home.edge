@@ -13,7 +13,7 @@
         @include('imports/droplist')
         @include('imports/upload')
 
-        <button type="submit" class="btn btn-style btn-dark">Enviar</button>
+        <button type="submit" class="{{ style.button }}">Enviar</button>
         @each(chat in chats)
       </form>
         <nav class="nav-border-min">
@@ -32,7 +32,7 @@
                 `
                   <!-- Default dropleft button -->
                   <div class="btn-group dropleft">
-                    <button type="button" class="bg-transparent text-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: none;">
+                    <button type="button" class="${style.btnTransparent} dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: none;">
                       Mais
                     </button>
                     <div class="dropdown-menu">

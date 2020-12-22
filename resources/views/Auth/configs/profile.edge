@@ -12,7 +12,7 @@
         <label for="" class="input-space" style="margin-top:2%">
             Sexo:
             <div class="dropdown" style="margin-bottom:2%;">
-                <select name="SEX" id="sex">
+                <select name="SEX" id="sex" style="width: 70%; padding: 6pt;">
                   <option value="M"
                       {{(user.sex == '')? 'selected':''}}>
                       Selecionar sexualidade
@@ -42,9 +42,9 @@
             placeholder="Localidade"
             value="{{(user.location)? user.location:''}}">
         </label>
-        <label for="" class="input-space" style="margin-top: -10pt;">
+        <label for="" class="input-space" style="margin-top: -10pt; ">
             Relacionamento:
-            <select name="RELATIONSHIP" id="relationship">
+            <select name="RELATIONSHIP" id="relationship" style="width: 70%; padding: 6pt;">
               <option value="" disabled
                   {{(user.relationship == '')? 'selected':''}}>
                   Selecionar estado civil
@@ -70,7 +70,7 @@
         </label>
         <label for="" class="input-space" style="margin-top: 4pt;">
             Orientação Sexual:
-            <select name="SEXUAL_ORIENTATION" id="sexual-orientation">
+            <select name="SEXUAL_ORIENTATION" id="sexual-orientation" style="width: 70%; padding: 6pt;";>
               <option value=""
                   {{(user.sexual_orientation == '')? 'selected':''}} disabled>
                   Selecionar orientação sexual
@@ -89,11 +89,11 @@
                 </option>
             </select>
         </label>
-        <button type="submit" class="btn btn-style btn-dark"
+        <button type="submit" class="{{ style.button }}"
         style="margin-bottom: .4%;">
         Atualizar
         </button>
-        <a href="" class="btn btn-style btn-dark"
+        <a href="" class="{{ style.button }}"
           style="margin-bottom: .4%;">
           Editar dados extras
         </a>

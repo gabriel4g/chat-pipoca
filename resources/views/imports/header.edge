@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg {{style.navbar}}" >
     <a class="navbar-brand" href="/">
         <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Chat-Pipoca
     </a>
     @if(auth.user)
-        <button class="navbar-toggler" type="button" data-toggle="collapse" 
-            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,8 +38,8 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" 
-                        role="button" data-toggle="dropdown" aria-haspopup="true" 
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                        role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <i class="fas fa-plus"></i> Extras
                     </a>
