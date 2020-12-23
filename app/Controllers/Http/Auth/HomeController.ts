@@ -23,17 +23,17 @@ export default class HomeController {
 
       const MESSAGE = await TeamWall.find(1)
         if(auth.user) {
-          console.log(StyleHelper.styleSecondary())
-                const USER = await auth.authenticate()
-                return view.render('Auth/home', {
-                  user: USER,
-                  message: (MESSAGE)? MESSAGE.message:'',
-                  chats: CHAT,
-                  avatar: gravatar,
-                  qparams: PAGE,
-                  style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
-                  styleDefault: StyleHelper.style()
-                })
+          const USER = await auth.authenticate()
+
+          return view.render('Auth/home', {
+            user: USER,
+            message: (MESSAGE)? MESSAGE.message:'',
+            chats: CHAT,
+            avatar: gravatar,
+            queryParams: PAGE,
+            style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+            styleDefault: StyleHelper.style()
+          })
         } else {
                 response.redirect('/login')
         }
@@ -63,14 +63,12 @@ export default class HomeController {
 
   }
 
-  public async chatEdit({params, request, view}) {
+  public async chatEdit({ params, view }) {
     const MESSAGE_ID = params.id
-    const NEW_MESSAGE = request.input('message')
     const CHAT = await Chat.find(MESSAGE_ID)
-    const MESSAGE_PUSH = new Notification()
 
     return view.render('Auth/home', {
-      editMessage: CHAT.messages,
+      editMessage: (CHAT)? CHAT.messages:'',
       id: MESSAGE_ID,
       style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
       styleDefault: StyleHelper.style()
