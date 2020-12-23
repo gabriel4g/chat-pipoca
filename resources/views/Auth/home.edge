@@ -52,7 +52,7 @@
         <select name="" id="" onchange="location = this.value;" style="margin-top: 1.2%; margin-bottom: 1.2%">
           @if(chats)
             @each(anchor in chats.getUrlsForRange(1, chats.lastPage))
-            <option value="{{anchor.url}}" {{(qparams == anchor.page)? 'selected':''}}>{{ anchor.page }}</option>
+            <option value="{{anchor.url}}" {{(queryParams == anchor.page)? 'selected':''}}>{{ anchor.page }}</option>
         @endeach
           @endif
         </select>
