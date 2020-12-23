@@ -23,7 +23,7 @@ export default class ProfilesController {
                     user: USER.toJSON(),
                     message: (MESSAGE)? MESSAGE.message:'',
                     user_id: params.id,
-                    date: DATE.generateDate(),
+                    createdAt: DATE.generateDate(),
                     style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
                     styleDefault: StyleHelper.style(),
                     avatar: gravatar.url(USER.email, { s: '100', r: 'g', d: 'robohash' }, true)
