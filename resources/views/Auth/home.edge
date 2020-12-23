@@ -19,7 +19,7 @@
         <nav class="nav-border-min">
           <img id="profile-img"src="{{ avatar.url(chat.$preloaded.user.email , { s: '100', r: 'g', d: 'robohash' }, true) }}" alt=""
               style="width: 30px; height: 30px; margin: 4px 0 0 2pt; ">
-              <a href="" style="color: {{ chat.$preloaded.user.color }};"><strong>{{ chat.$preloaded.user.username }}</strong></a>
+              <a href="/u/{{ chat.$preloaded.user.id }}" style="color: {{ chat.$preloaded.user.color }};"><strong>{{ chat.$preloaded.user.username }}</strong></a>
               <p>{{ chat.$attributes.messages }}</p>
               <div style="margin: -16pt 4pt 0 0; float: right;">
                 Há {{ date = Math.trunc((new Date().getTime() - new Date(chat.$attributes.createdAt).getTime()) / (1000 * 60 * 60)) }}
