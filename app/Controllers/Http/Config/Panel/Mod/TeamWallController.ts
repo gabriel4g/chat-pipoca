@@ -9,11 +9,15 @@ export default class TeamWallsController {
     const MESSAGE = await TeamWall.find(1)
 
     if(auth.user) {
-      return view.render('Auth/configs/panel/mod/teamwall', {
-        message: (MESSAGE)? MESSAGE.message:'',
-        style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
-        styleDefault: StyleHelper.style()
-      })
+      if(auth.user.permission == 0 || auth.user.permission == 1) {
+        return view.render('Auth/configs/panel/mod/teamwall', {
+          message: (MESSAGE)? MESSAGE.message:'',
+          style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+          styleDefault: StyleHelper.style()
+        })
+      } else {
+        return response.redirect('/')
+      }
     } else {
       response.redirect('/login')
     }
