@@ -1,10 +1,25 @@
 @charset "UTF-8";
 
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
     background-color: white;
     border: 2px solid #75c1ff;
     padding: 2px;
     color: rgb(92, 91, 91);
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
 }
 
 .nav-border {
@@ -155,9 +170,12 @@ ul {
 }
 
 footer {
-    text-align: center;
-    font-size: 12pt;
-    padding: 4pt;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
 }
 
 label {
