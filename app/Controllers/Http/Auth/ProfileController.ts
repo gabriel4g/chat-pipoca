@@ -22,8 +22,8 @@ export default class ProfilesController {
                 return view.render('Auth/profile', {
                     user: USER.toJSON(),
                     message: (MESSAGE)? MESSAGE.message:'',
-                    date: DATE.generateDate(),
                     user_id: params.id,
+                    date: DATE.generateDate(),
                     style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
                     styleDefault: StyleHelper.style(),
                     avatar: gravatar.url(USER.email, { s: '100', r: 'g', d: 'robohash' }, true)
