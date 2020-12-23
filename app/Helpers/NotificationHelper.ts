@@ -49,4 +49,16 @@ export default class NotificationHelper {
       })
       return response.redirect('/')
   }
+
+  public statusLogin(session, response) {
+    session.flash({
+        notification: {
+            type: this.type,
+            text: this.color,
+            message: this.message,
+            icon: this.icon
+        }
+    })
+    return response.redirect('/login')
+  }
 }
