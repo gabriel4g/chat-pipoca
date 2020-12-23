@@ -79,18 +79,21 @@ export default class ProfilesController {
         }
     }
 
-    public async destroy({ response, auth }) {
+    public async destroy({ response, session, auth }) {
       const USER = await User.find(auth.user.id);
+      const MESSAGE = new Notification()
 
       try {
         if(USER) {
           USER.delete()
           await auth.logout();
+          MESSAGE.notificationFlash('success', '', 'Conta deletada!', 'check')
+          MESSAGE.statusLogin(session, response)
 
-          return response.redirec('/login')
         }
       } catch(err) {
-
+          MESSAGE.notificationFlash('danger', 'white', 'Erro ao salvar os dados!', 'exclamation')
+          MESSAGE.statusLogin(session, response)
       }
     }
 }
