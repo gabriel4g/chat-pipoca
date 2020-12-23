@@ -9,11 +9,15 @@ export default class ModsController {
   public async index({ response, auth, view }) {
     const MESSAGE = await TeamWall.find(1)
     if(auth.user) {
-      return view.render('Auth/configs/panel/moderator', {
-        message: (MESSAGE)? MESSAGE.message:'',
-        style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
-        styleDefault: StyleHelper.style()
-      })
+      if(auth.user.permission == 0 || auth.user.permission == 1) {
+        return view.render('Auth/configs/panel/moderator', {
+          message: (MESSAGE)? MESSAGE.message:'',
+          style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+          styleDefault: StyleHelper.style()
+        })
+      } else {
+        response.redirect('/')
+      }
     } else {
       response.redirect('/login')
     }
