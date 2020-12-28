@@ -52,6 +52,7 @@ Route.group(() => {
     Route.get('/profile/remove', 'Auth/ProfileController.destroy')
     Route.get('/color', 'Config/NickColorController.index')
     Route.post('/color', 'Config/NickColorController.update')
+    Route.get('/bbcodes', 'Config/BbcodesController.index')
 }).prefix('/config').middleware('auth')
 
 Route.group(() => {
