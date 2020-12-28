@@ -8,6 +8,7 @@ import StyleHelper from 'App/Helpers/StyleHelper'
 import Dark from 'App/Locales/style/styleDark'
 import Light from 'App/Locales/style/styleLight'
 import BBCode from 'App/Helpers/BBCodeHelper'
+import Emoji from 'App/Models/Emoji'
 
 
 export default class HomeController {
@@ -21,11 +22,22 @@ export default class HomeController {
         .preload('user')
         .paginate(PAGE, LIMIT)
         CHAT.baseUrl('/')
+      const EMOJI = await Emoji.query()
+        .select('*')
+        .from('emojis')
 
       const MESSAGE = await TeamWall.find(1)
 
-       const convert = (message) => {
+      const convert = (message) => {
         const BBCODE = new BBCode()
+
+
+
+        for(let i: number = 0; i < EMOJI.length; i++) {
+          if(message) {
+            message = message.replace(EMOJI[i].code, `<img height="25" width="25" src="/images/emojis/${EMOJI[i].emoji}.svg">`)
+          }
+        }
 
         BBCODE.run()
 
