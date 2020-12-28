@@ -7,6 +7,7 @@ import gravatar from 'gravatar'
 import StyleHelper from 'App/Helpers/StyleHelper'
 import Dark from 'App/Locales/style/styleDark'
 import Light from 'App/Locales/style/styleLight'
+import BBCode from 'App/Helpers/BBCodeHelper'
 
 
 export default class HomeController {
@@ -22,13 +23,38 @@ export default class HomeController {
         CHAT.baseUrl('/')
 
       const MESSAGE = await TeamWall.find(1)
+
+       const convert = (message) => {
+        const BBCODE = new BBCode()
+
+        BBCODE.run()
+
+        return BBCODE.bbCodeToHtml(message)
+
+
+      }
+
+      for(let i = 0; i < CHAT.length; i++) {
+        let date = Math.trunc((new Date().getTime() - new Date(CHAT[i].$attributes.createdAt).getTime()) / (1000 * 60 * 60))
+
+        if(date >= 72) {
+
+        let messageDelete = await Chat.find(CHAT[i].$attributes.id)
+
+        if(messageDelete) {
+          messageDelete.delete()
+        }
+
+        }
+      }
+
         if(auth.user) {
           const USER = await auth.authenticate()
-
           return view.render('Auth/home', {
             user: USER,
             message: (MESSAGE)? MESSAGE.message:'',
             chats: CHAT,
+            BBCodeParser: convert,
             avatar: gravatar,
             queryParams: PAGE,
             style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
@@ -41,11 +67,15 @@ export default class HomeController {
 
     public async chat({ request, auth, session, response }) {
       const NEW_MESSAGE = new Chat()
-      const MESSAGE = request.input('message')
+      let message = request.input('message')
       const MESSAGE_PUSH = new Notification()
 
+      message = message.replace('<', '&#60;')
+      message = message.replace('</', '&#60;/')
+      message = message.replace('>', '&#62;')
+
      try {
-      NEW_MESSAGE.messages = MESSAGE
+      NEW_MESSAGE.messages = message
       NEW_MESSAGE.userId = auth.user.id
       NEW_MESSAGE.createdAt = `${new Date()}`
 
