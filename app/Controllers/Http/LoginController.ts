@@ -29,7 +29,7 @@ export default class LoginController {
         .first()
 
         if(USER) {
-            if(Hash.verify(USER.password, PASSWORD)) {
+            if(await Hash.verify(USER.password, PASSWORD)) {
                 auth.login(USER)
 
                 return response.redirect('/')
