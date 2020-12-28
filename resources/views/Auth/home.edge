@@ -20,7 +20,7 @@
           <img id="profile-img"src="{{ avatar.url(chat.$preloaded.user.email , { s: '100', r: 'g', d: 'robohash' }, true) }}" alt=""
               style="width: 30px; height: 30px; margin: 4px 0 0 2pt; ">
               <a href="/u/{{ chat.$preloaded.user.id }}" style="color: {{ chat.$preloaded.user.color }};"><strong>{{ chat.$preloaded.user.username }}</strong></a>
-              <p>{{ chat.$attributes.messages }}</p>
+              <p>{{{ BBCodeParser(`${chat.$attributes.messages}`) }}}</p>
               <div style="margin: -16pt 4pt 0 0; float: right;">
                 Há {{ date = Math.trunc((new Date().getTime() - new Date(chat.$attributes.createdAt).getTime()) / (1000 * 60 * 60)) }}
                 horas atrás
@@ -62,7 +62,7 @@
         Ação legal
     </div>
     <nav class="nav-border">
-        <nav class="nav-border-min">
+        <nav class="nav-border-min" style="text-align: center">
             <strong>USER</strong> passou a mão em <strong>TODOS</strong>
         </nav>
         <nav style="border: 1px solid #333; text-align: center">
