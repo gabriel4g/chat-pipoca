@@ -22,6 +22,19 @@ body {
     min-height: 100%;
 }
 
+@media only screen and (max-width: 599px) {
+  .header-menu {
+    margin-right: 34%;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .header-menu {
+    margin-right: 54%;
+  }
+}
+
 .nav-border {
     margin: 1px;
     padding: 4px;
@@ -43,9 +56,6 @@ body {
     font-weight: bold;
     color: #005064;
     background-color: white;
-    background-image: url('../img/azulescuro.png');
-    background-repeat: repeat-x;
-    background-position: 50% top;
     margin: 1px;
     padding: 4px;
     -webkit-border-radius: 5px;
