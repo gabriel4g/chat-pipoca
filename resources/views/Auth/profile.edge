@@ -7,7 +7,7 @@
         </strong>
     </div>
     <div class="border-profile">
-        <img id="profile-img"src="{{avatar}}" alt="">
+        <img id="profile-img"src="{{avatar.url(user.email, { s: '100', r: 'g', d: 'robohash' }, true)}}" alt="">
         <div id="status-profile">
             @if(user.permission == 0)
                 <strong>Administrador(a)</strong>
