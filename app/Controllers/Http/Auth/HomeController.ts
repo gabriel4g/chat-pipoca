@@ -70,7 +70,7 @@ export default class HomeController {
             avatar: gravatar,
             queryParams: PAGE,
             style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
-            styleDefault: StyleHelper.style()
+            styleDefault: StyleHelper.style(),
           })
         } else {
                 response.redirect('/login')
@@ -113,7 +113,8 @@ export default class HomeController {
       editMessage: (CHAT)? CHAT.messages:'',
       id: MESSAGE_ID,
       style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
-      styleDefault: StyleHelper.style()
+      styleDefault: StyleHelper.style(),
+      avatar: gravatar
     })
 
   }

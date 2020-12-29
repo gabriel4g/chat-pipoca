@@ -26,7 +26,7 @@ export default class ProfilesController {
                     createdAt: DATE.generateDate(),
                     style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
                     styleDefault: StyleHelper.style(),
-                    avatar: gravatar.url(USER.email, { s: '100', r: 'g', d: 'robohash' }, true)
+                    avatar: gravatar
                 })
             } else return response.redirect('/')
         } else {

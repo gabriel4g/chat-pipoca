@@ -2,6 +2,7 @@ import TeamWall from 'App/Models/TeamWall'
 import Light from 'App/Locales/style/styleLight'
 import Dark from 'App/Locales/style/styleDark'
 import StyleHelper from 'App/Helpers/StyleHelper'
+import gravatar from 'gravatar'
 
 
 export default class TeamWallsController {
@@ -13,7 +14,8 @@ export default class TeamWallsController {
         return view.render('Auth/configs/panel/mod/teamwall', {
           message: (MESSAGE)? MESSAGE.message:'',
           style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
-          styleDefault: StyleHelper.style()
+          styleDefault: StyleHelper.style(),
+          avatar: gravatar
         })
       } else {
         return response.redirect('/')
