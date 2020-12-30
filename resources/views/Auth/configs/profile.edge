@@ -1,105 +1,89 @@
 @layout('layouts/app')
 
 @section('content')
-	<style>
-        input[type="text"], input[type="password"],
-        input[type="email"] { margin-bottom: 2%; }
-    </style>
+  <style>
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      margin-bottom: 2%;
+    }
+  </style>
 
-    <div class="div-bar">Atualizar perfil</div>
-    @include('imports/notification')
-    <form action="" method="post">
-        <label for="" class="input-space" style="margin-top:2%">
-            Sexo:
-            <div class="dropdown" style="margin-bottom:2%;">
-                <select name="SEX" id="sex" style="width: 70%; padding: 6pt;">
-                  <option value="M"
-                      {{(user.sex == '')? 'selected':''}}>
-                      Selecionar sexualidade
-                  </option>
-                    <option value="M"
-                      {{(user.sex == 'M')? 'selected':''}}>
-                      Masculino
-                    </option>
-                    <option value="F"
-                      {{(user.sex == 'F')? 'selected':''}}>
-                      Feminino
-                    </option>
-                </select>
-            </div>
-        </label>
-        <label for="" class="input-space" style="margin-top: -10pt;">
-          Status:
-          <input type="text" name="STATUS" id=""
-          style="height:40px; font-size:17px;"
-          placeholder="Status" maxlength="40"
-          value="{{(user.status)? user.status:''}}">
-      </label>
-        <label for="" class="input-space" style="margin-top: -10pt;">
-            Localidade:
-            <input type="text" name="LOCATION" id="" maxlength="122"
-            style="height:40px; font-size:17px;"
-            placeholder="Localidade"
-            value="{{(user.location)? user.location:''}}">
-        </label>
-        <label for="" class="input-space" style="margin-top: -10pt; ">
-            Relacionamento:
-            <select name="RELATIONSHIP" id="relationship" style="width: 70%; padding: 6pt;">
-              <option value="" disabled
-                  {{(user.relationship == '')? 'selected':''}}>
-                  Selecionar estado civil
-              </option>
-              <option value="casado(a)"
-                {{(user.relationship == 'casado(a)')? 'selected':''}}>
-                Casado(a)
-              </option>
-              <option value="solteiro(a)"
-                  {{(user.relationship == 'solteiro(a)')? 'selected':''}}>
-                  Solteiro(a)
-              </option>
-              <option value="divorciado(a)"
-                  {{(user.relationship == 'divorciado(a)')? 'selected':''}}>
-                  Divorciado(a)
-              </option>
-              <option value="viúvo(a)"
-                  {{(user.relationship == 'viúvo(a)')? 'selected':''}}>
-                  Viúvo(a)
-              </option>
+<div class="div-bar">Atualizar perfil</div>
+  @include('imports/notification')
+  <form action="" method="post">
+    <label for="" class="input-space" style="margin-top:2%">
+      Sexo:
+      <div class="dropdown" style="margin-bottom:2%;">
+        <select name="SEX" id="sex" style="width: 70%; padding: 6pt;">
+          <option value="M" {{(user.sex=='' )? 'selected' :''}}>
+            Selecionar sexualidade
+          </option>
+          <option value="M" {{(user.sex=='M' )? 'selected' :''}}>
+            Masculino
+          </option>
+          <option value="F" {{(user.sex=='F' )? 'selected' :''}}>
+            Feminino
+          </option>
+        </select>
+      </div>
+    </label>
+    <label for="" class="input-space" style="margin-top: -10pt;">
+      Status:
+      <input type="text" name="STATUS" id="" style="height:40px; font-size:17px;" placeholder="Status" maxlength="40"
+        value="{{(user.status)? user.status:''}}">
+    </label>
+    <label for="" class="input-space" style="margin-top: -10pt;">
+      Localidade:
+      <input type="text" name="LOCATION" id="" maxlength="122" style="height:40px; font-size:17px;"
+        placeholder="Localidade" value="{{(user.location)? user.location:''}}">
+    </label>
+    <label for="" class="input-space" style="margin-top: -10pt; ">
+      Relacionamento:
+      <select name="RELATIONSHIP" id="relationship" style="width: 70%; padding: 6pt;">
+        <option value="" disabled {{(user.relationship=='' )? 'selected' :''}}>
+          Selecionar estado civil
+        </option>
+        <option value="casado(a)" {{(user.relationship=='casado(a)' )? 'selected' :''}}>
+          Casado(a)
+        </option>
+        <option value="solteiro(a)" {{(user.relationship=='solteiro(a)' )? 'selected' :''}}>
+          Solteiro(a)
+        </option>
+        <option value="divorciado(a)" {{(user.relationship=='divorciado(a)' )? 'selected' :''}}>
+          Divorciado(a)
+        </option>
+        <option value="viúvo(a)" {{(user.relationship=='viúvo(a)' )? 'selected' :''}}>
+          Viúvo(a)
+        </option>
 
-            </select>
-        </label>
-        <label for="" class="input-space" style="margin-top: 4pt;">
-            Orientação Sexual:
-            <select name="SEXUAL_ORIENTATION" id="sexual-orientation" style="width: 70%; padding: 6pt;";>
-              <option value=""
-                  {{(user.sexual_orientation == '')? 'selected':''}} disabled>
-                  Selecionar orientação sexual
-              </option>
-                <option value="heterossexual"
-                  {{(user.sexual_orientation == 'heterossexual')? 'selected':''}}>
-                  Heterossexual
-                </option>
-                <option value="bissexual"
-                  {{(user.sexual_orientation == 'bissexual')? 'selected':''}}>
-                  Bissexual
-                </option>
-                <option value="homossexual"
-                {{(user.sexual_orientation == 'homossexual')? 'selected':''}}>
-                  Homossexual
-                </option>
-            </select>
-        </label>
-        <button type="submit" class="{{ style.button }}"
-        style="margin-bottom: .4%;">
-        Atualizar
-        </button>
-        <a href="" class="{{ style.button }}"
-          style="margin-bottom: .4%;">
-          Editar dados extras
-        </a>
-      <a href="{{route('Auth/ProfileController.destroy')}}" class="btn btn-style btn-danger"
-          style="margin-bottom: 4%;">
-          Deletar conta
-        </a>
-    </form>
+      </select>
+    </label>
+    <label for="" class="input-space" style="margin-top: 4pt;">
+      Orientação Sexual:
+      <select name="SEXUAL_ORIENTATION" id="sexual-orientation" style="width: 70%; padding: 6pt;" ;>
+        <option value="" {{(user.sexual_orientation=='' )? 'selected' :''}} disabled>
+          Selecionar orientação sexual
+        </option>
+        <option value="heterossexual" {{(user.sexual_orientation=='heterossexual' )? 'selected' :''}}>
+          Heterossexual
+        </option>
+        <option value="bissexual" {{(user.sexual_orientation=='bissexual' )? 'selected' :''}}>
+          Bissexual
+        </option>
+        <option value="homossexual" {{(user.sexual_orientation=='homossexual' )? 'selected' :''}}>
+          Homossexual
+        </option>
+      </select>
+    </label>
+    <button type="submit" class="{{ style.button }}" style="margin-bottom: .4%;">
+      Atualizar
+    </button>
+    <a href="" class="{{ style.button }}" style="margin-bottom: .4%;">
+      Editar dados extras
+    </a>
+    <a href="{{route('Auth/ProfileController.destroy')}}" class="btn btn-style btn-danger" style="margin-bottom: 4%;">
+      Deletar conta
+    </a>
+  </form>
 @endsection

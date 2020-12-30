@@ -3,15 +3,15 @@ export default class BBCodeHelper {
 
   // Regular expressions for the different bbcode tokens
   tokens = {
-    'URL' : '((?:(?:[a-z][a-z\\d+\\-.]*:\\/{2}(?:(?:[a-z0-9\\-._~\\!$&\'*+,;=:@|]+|%[\\dA-F]{2})+|[0-9.]+|\\[[a-z0-9.]+:[a-z0-9.]+:[a-z0-9.:]+\\])(?::\\d*)?(?:\\/(?:[a-z0-9\\-._~\\!$&\'*+,;=:@|]+|%[\\dA-F]{2})*)*(?:\\?(?:[a-z0-9\\-._~\\!$&\'*+,;=:@\\/?|]+|%[\\dA-F]{2})*)?(?:#(?:[a-z0-9\\-._~\\!$&\'*+,;=:@\\/?|]+|%[\\dA-F]{2})*)?)|(?:www\\.(?:[a-z0-9\\-._~\\!$&\'*+,;=:@|]+|%[\\dA-F]{2})+(?::\\d*)?(?:\\/(?:[a-z0-9\\-._~\\!$&\'*+,;=:@|]+|%[\\dA-F]{2})*)*(?:\\?(?:[a-z0-9\\-._~\\!$&\'*+,;=:@\\/?|]+|%[\\dA-F]{2})*)?(?:#(?:[a-z0-9\\-._~\\!$&\'*+,;=:@\\/?|]+|%[\\dA-F]{2})*)?)))',
-    'LINK' : '([a-z0-9\-\./]+[^"\' ]*)',
-    'EMAIL' : '((?:[\\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*(?:[\\w\!\#$\%\'\*\+\-\/\=\?\^\`{\|\}\~]|&)+@(?:(?:(?:(?:(?:[a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(?:\\d{1,3}\.){3}\\d{1,3}(?:\:\\d{1,5})?))',
-    'TEXT' : '(.*?)',
-    'SIMPLETEXT' : '([a-zA-Z0-9-+.,_ ]+)',
-    'INTTEXT' : '([a-zA-Z0-9-+,_. ]+)',
-    'IDENTIFIER' : '([a-zA-Z0-9-_]+)',
-    'COLOR' : '([a-z]+|#[0-9abcdef]+)',
-    'NUMBER'  : '([0-9]+)'
+    'URL': '((?:(?:[a-z][a-z\\d+\\-.]*:\\/{2}(?:(?:[a-z0-9\\-._~\\!$&\'*+,;=:@|]+|%[\\dA-F]{2})+|[0-9.]+|\\[[a-z0-9.]+:[a-z0-9.]+:[a-z0-9.:]+\\])(?::\\d*)?(?:\\/(?:[a-z0-9\\-._~\\!$&\'*+,;=:@|]+|%[\\dA-F]{2})*)*(?:\\?(?:[a-z0-9\\-._~\\!$&\'*+,;=:@\\/?|]+|%[\\dA-F]{2})*)?(?:#(?:[a-z0-9\\-._~\\!$&\'*+,;=:@\\/?|]+|%[\\dA-F]{2})*)?)|(?:www\\.(?:[a-z0-9\\-._~\\!$&\'*+,;=:@|]+|%[\\dA-F]{2})+(?::\\d*)?(?:\\/(?:[a-z0-9\\-._~\\!$&\'*+,;=:@|]+|%[\\dA-F]{2})*)*(?:\\?(?:[a-z0-9\\-._~\\!$&\'*+,;=:@\\/?|]+|%[\\dA-F]{2})*)?(?:#(?:[a-z0-9\\-._~\\!$&\'*+,;=:@\\/?|]+|%[\\dA-F]{2})*)?)))',
+    'LINK': '([a-z0-9\-\./]+[^"\' ]*)',
+    'EMAIL': '((?:[\\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*(?:[\\w\!\#$\%\'\*\+\-\/\=\?\^\`{\|\}\~]|&)+@(?:(?:(?:(?:(?:[a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(?:\\d{1,3}\.){3}\\d{1,3}(?:\:\\d{1,5})?))',
+    'TEXT': '(.*?)',
+    'SIMPLETEXT': '([a-zA-Z0-9-+.,_ ]+)',
+    'INTTEXT': '([a-zA-Z0-9-+,_. ]+)',
+    'IDENTIFIER': '([a-zA-Z0-9-_]+)',
+    'COLOR': '([a-z]+|#[0-9abcdef]+)',
+    'NUMBER': '([0-9]+)'
   }
 
   bbCodeMatches: string[] = []// Matches for BBCode to HTML
@@ -28,17 +28,17 @@ export default class BBCodeHelper {
     let nrMatches: number = matches.length
     let replacement: string = ''
 
-    if(nrMatches <= 0) {
+    if (nrMatches <= 0) {
       return new RegExp(this.pregQuote(str), 'g')
     }
 
-    for(let i = 0; i < nrMatches; i++) {
+    for (let i = 0; i < nrMatches; i++) {
       let token: string = matches[i].replace(/[{}0-9]/g, '')
 
-      if(this.tokens[token]) {
+      if (this.tokens[token]) {
         replacement += this.pregQuote(str.substr(0, str.indexOf(matches[i]))) + this.tokens[token]
 
-        str = str. substr(str.indexOf(matches[i]) + matches[i].length)
+        str = str.substr(str.indexOf(matches[i]) + matches[i].length)
       }
     }
 
@@ -47,22 +47,22 @@ export default class BBCodeHelper {
     return new RegExp(replacement, 'gi')
   }
 
-  public _getTpls = (str): any =>{
+  public _getTpls = (str): any => {
     let matches: string = str.match(this.tokenMatch)
     let nrMatches: number = matches.length
     let replacement: string = ''
     let positions = {}
     let nextPosition: number = 0
 
-    if(nrMatches <= 0) {
+    if (nrMatches <= 0) {
       return str
     }
 
-    for(let i = 0; i < nrMatches; i++) {
+    for (let i = 0; i < nrMatches; i++) {
       let token: string = matches[i].replace(/[{}0-9]/g, '')
       let position: number
 
-      if(positions[matches[i]]) {
+      if (positions[matches[i]]) {
         position = positions[matches[i]]
       } else {
         nextPosition += 1
@@ -70,7 +70,7 @@ export default class BBCodeHelper {
         positions[matches[i]] = position
       }
 
-      if(this.tokens[token]) {
+      if (this.tokens[token]) {
         replacement += str.substr(0, str.indexOf(matches[i])) + '$' + position
         str = str.substr(str.indexOf(matches[i]) + matches[i].length)
       }
@@ -92,7 +92,7 @@ export default class BBCodeHelper {
   public bbCodeToHtml = (str): any => {
     let nrBbcMatches: number = this.bbCodeMatches.length
 
-    for(let i = 0; i < nrBbcMatches; i++) {
+    for (let i = 0; i < nrBbcMatches; i++) {
       str = str.replace(this.bbCodeMatches[i], this.htmlTpls[i])
     }
 
@@ -102,7 +102,7 @@ export default class BBCodeHelper {
   public htmlToBBCode = (str): any => {
     let nrHtmlMatches: number = this.htmlMatches.length
 
-    for(let i = 0; i < nrHtmlMatches; i++) {
+    for (let i = 0; i < nrHtmlMatches; i++) {
       str = str.replace(this.htmlMatches[i], this.bbcodeTpls[i])
     }
 
@@ -113,7 +113,7 @@ export default class BBCodeHelper {
     return (str + '').replace(new RegExp('[.\\\\+*?\\[\\^\\]$(){}=!<>|:\\' + '' + '-]', 'g'), '\\$&');
   }
 
-  public  run(): any {
+  public run(): any {
     this.addBBCode('[b]{TEXT}[/b]', '<strong>{TEXT}</strong>')
     this.addBBCode('[code]{TEXT}[/code]', '<code>{TEXT}</code>')
     this.addBBCode('[user={NUMBER}]{TEXT}[/user]', '<a href="/u/{NUMBER}" target="_blank">{TEXT}</a>')

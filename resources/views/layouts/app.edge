@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="theme-color" content="#000000">
-    <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href="/images/favicon.ico"/>
-    <link rel="stylesheet" href="/styles/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/{{ styleDefault }}">
-    <title>Chat-pipoca</title>
-</head>
-<body>
-    @include('imports/header')
-    @!section('content')
-    <footer class="{{style.footer}}">
-        Chat-pipocaJS <br/>
-        copyright &copy; Gabriel Oliveira - 2020.
-    </footer>
 
-    <script src="/scripts/jquery-3.4.1.slim.min.js"></script>
-    <script src="/scripts/popper.min.js"></script>
-    <script src="/scripts/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/c25abe3fb5.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="/images/favicon.ico" />
+  <link rel="stylesheet" href="/styles/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/{{ styleDefault }}">
+  <title>Chat-pipoca</title>
+</head>
+
+<body>
+  @include('imports/header')
+  @include('imports/navigation')
+  @!section('content')
+  <footer class="{{style.footer}}">
+    Chat-pipocaJS <br />
+    copyright &copy; Gabriel Oliveira - 2020.
+  </footer>
+
+  <script src="/scripts/jquery-3.4.1.slim.min.js"></script>
+  <script src="/scripts/popper.min.js"></script>
+  <script src="/scripts/bootstrap.min.js"></script>
+  <script src="https://kit.fontawesome.com/c25abe3fb5.js"></script>
 </body>
+
 </html>

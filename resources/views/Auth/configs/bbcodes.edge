@@ -1,21 +1,20 @@
 @layout('layouts/app')
 
 @section('content')
-    <div class="div-bar">Formatação de textos</div>
-    <div>
-      <p>[b]TEXTO EM NEGRITO[/b]: <strong>TEXTO EM NEGRITO</strong></p>
-      <p>[i]TEXTO EM ITÁLICO[/i]: <em>TEXTO EM ITÁLICO</p>
+  <div class="div-bar">Formatação de textos</div>
+  <div>
+    <p>[b]TEXTO EM NEGRITO[/b]: <strong>TEXTO EM NEGRITO</strong></p>
+    <p>[i]TEXTO EM ITÁLICO[/i]: <em>TEXTO EM ITÁLICO</p>
 
-        <p>[u]UNDERLINE[/u]: <span style="text-decoration:underline;">UNDERLINE</span>
-        <p>[s]LINE-TROUGH[/s]: <span style="text-decoration:line-through;">LINE-THROUGH</span>
-        <p>[url=https://chat-pipoca.herokuapp.com]chat-pipoca[/url]: <a href="https://chat-pipoca.herokuapp.com" title="link" target="_blank">chat-pipoca</a></p>
-        <p>[img=/images/logo.png width=120 height=120]logo[/img]: <img src="/images/logo.png" width="120" height="120" alt="logo" /></p>
-        <p>[img]/images/logo.png[/img]<img src="/images/logo.png" alt="/images/logo.png" /></p>
-        <p>[color=Tomato]TEXTO COLORIDO[/color]: <span style="color: tomato">TEXTO COLORIDO</span>
-        <p>[highlight= green]TEXTO EM FUNDO VERDE[/highlight]<span style="background-color: green">TEXTO EM FUNDO VERDE</span></p>
-        <p>[center]TEXTO CENTRALIZADO[/center]: <br> <p style="text-align: center;">TEXTO CENTRALIZADO</p></p>
-        <p>[code]console.log('Hello world!')[/code]: <code>console.log('Hello world!')</code></p>
-        <p>[user=1]admin[/user]: <a href="/u/1" target="_blank">{{user.username}}</a></p>
-      </div>
-
+    <p>[u]UNDERLINE[/u]: <span style="text-decoration:underline;">UNDERLINE</span>
+    <p>[s]LINE-TROUGH[/s]: <span style="text-decoration:line-through;">LINE-THROUGH</span>
+    <p>[url=https://chat-pipoca.herokuapp.com]chat-pipoca[/url]: <a href="https://chat-pipoca.herokuapp.com" title="link" target="_blank">chat-pipoca</a></p>
+    <p>[img=/images/logo.png width=120 height=120]logo[/img]: <img src="/images/logo.png" width="120" height="120" alt="logo" /></p>
+    <p>[img]/images/logo.png[/img]<img src="/images/logo.png" alt="/images/logo.png" /></p>
+    <p>[color=Tomato]TEXTO COLORIDO[/color]: <span style="color: tomato">TEXTO COLORIDO</span>
+    <p>[highlight= green]TEXTO EM FUNDO VERDE[/highlight]<span style="background-color: green">TEXTO EM FUNDO VERDE</span></p>
+    <p>[center]TEXTO CENTRALIZADO[/center]: <br> <p style="text-align: center;">TEXTO CENTRALIZADO</p></p>
+    <p>[code]console.log('Hello world!')[/code]: <code>console.log('Hello world!')</code></p>
+    <p>[user=1]admin[/user]: <a href="/u/1" target="_blank">{{user.username}}</a></p>
+  </div>
 @endsection

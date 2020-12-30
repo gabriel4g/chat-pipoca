@@ -12,81 +12,81 @@ import Emoji from 'App/Models/Emoji'
 
 
 export default class HomeController {
-    public async index({ auth, response, request, view }) {
-      const PAGE = request.input('page', 1)
-      const LIMIT = 6
-      const CHAT = await Chat.query()
-        .select()
-        .from('chats')
-        .orderBy('id', 'desc')
-        .preload('user')
-        .paginate(PAGE, LIMIT)
-        CHAT.baseUrl('/')
-      const EMOJI = await Emoji.query()
-        .select('*')
-        .from('emojis')
+  public async index({ auth, response, request, view }) {
+    const PAGE = request.input('page', 1)
+    const LIMIT = 6
+    const CHAT = await Chat.query()
+      .select()
+      .from('chats')
+      .orderBy('id', 'desc')
+      .preload('user')
+      .paginate(PAGE, LIMIT)
+    CHAT.baseUrl('/')
+    const EMOJI = await Emoji.query()
+      .select('*')
+      .from('emojis')
 
-      const MESSAGE = await TeamWall.find(1)
+    const MESSAGE = await TeamWall.find(1)
 
-      const convert = (message) => {
-        const BBCODE = new BBCode()
+    const convert = (message) => {
+      const BBCODE = new BBCode()
 
 
 
-        for(let i: number = 0; i < EMOJI.length; i++) {
-          if(message) {
-            message = message.replace(EMOJI[i].code, `<img height="25" width="25" src="/images/emojis/${EMOJI[i].emoji}.svg">`)
-          }
+      for (let i: number = 0; i < EMOJI.length; i++) {
+        if (message) {
+          message = message.replace(EMOJI[i].code, `<img height="25" width="25" src="/images/emojis/${EMOJI[i].emoji}.svg">`)
         }
-
-        BBCODE.run()
-
-        return BBCODE.bbCodeToHtml(message)
-
-
       }
 
-      for(let i = 0; i < CHAT.length; i++) {
-        let date = Math.trunc((new Date().getTime() - new Date(CHAT[i].$attributes.createdAt).getTime()) / (1000 * 60 * 60))
+      BBCODE.run()
 
-        if(date >= 72) {
+      return BBCODE.bbCodeToHtml(message)
+
+
+    }
+
+    for (let i = 0; i < CHAT.length; i++) {
+      let date = Math.trunc((new Date().getTime() - new Date(CHAT[i].$attributes.createdAt).getTime()) / (1000 * 60 * 60))
+
+      if (date >= 72) {
 
         let messageDelete = await Chat.find(CHAT[i].$attributes.id)
 
-        if(messageDelete) {
+        if (messageDelete) {
           messageDelete.delete()
         }
 
-        }
       }
-
-        if(auth.user) {
-          const USER = await auth.authenticate()
-          return view.render('Auth/home', {
-            user: USER,
-            message: (MESSAGE)? MESSAGE.message:'',
-            chats: CHAT,
-            BBCodeParser: convert,
-            avatar: gravatar,
-            queryParams: PAGE,
-            style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
-            styleDefault: StyleHelper.style(),
-          })
-        } else {
-                response.redirect('/login')
-        }
     }
 
-    public async chat({ request, auth, session, response }) {
-      const NEW_MESSAGE = new Chat()
-      let message = request.input('message')
-      const MESSAGE_PUSH = new Notification()
+    if (auth.user) {
+      const USER = await auth.authenticate()
+      return view.render('Auth/home', {
+        user: USER,
+        message: (MESSAGE) ? MESSAGE.message : '',
+        chats: CHAT,
+        BBCodeParser: convert,
+        avatar: gravatar,
+        queryParams: PAGE,
+        style: (StyleHelper.styleSecondary() == 'Dark') ? Dark : Light,
+        styleDefault: StyleHelper.style(),
+      })
+    } else {
+      response.redirect('/login')
+    }
+  }
 
-      message = message.replace('<', '&#60;')
-      message = message.replace('</', '&#60;/')
-      message = message.replace('>', '&#62;')
+  public async chat({ request, auth, session, response }) {
+    const NEW_MESSAGE = new Chat()
+    let message = request.input('message')
+    const MESSAGE_PUSH = new Notification()
 
-     try {
+    message = message.replace('<', '&#60;')
+    message = message.replace('</', '&#60;/')
+    message = message.replace('>', '&#62;')
+
+    try {
       NEW_MESSAGE.messages = message
       NEW_MESSAGE.userId = auth.user.id
       NEW_MESSAGE.createdAt = `${new Date()}`
@@ -95,13 +95,13 @@ export default class HomeController {
 
       response.redirect('back')
 
-    }  catch(err) {
+    } catch (err) {
 
       MESSAGE_PUSH.notificationFlash('danger', '', 'Erro ao enviar mensagem!', 'exclamation')
       MESSAGE_PUSH.status(session, response)
 
       console.log(err)
-     }
+    }
 
   }
 
@@ -110,9 +110,9 @@ export default class HomeController {
     const CHAT = await Chat.find(MESSAGE_ID)
 
     return view.render('Auth/home', {
-      editMessage: (CHAT)? CHAT.messages:'',
+      editMessage: (CHAT) ? CHAT.messages : '',
       id: MESSAGE_ID,
-      style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+      style: (StyleHelper.styleSecondary() == 'Dark') ? Dark : Light,
       styleDefault: StyleHelper.style(),
       avatar: gravatar
     })
@@ -126,7 +126,7 @@ export default class HomeController {
     const MESSAGE_PUSH = new Notification()
 
     try {
-      if(CHAT) {
+      if (CHAT) {
         CHAT.messages = NEW_MESSAGE
         CHAT.createdAt = `${new Date()}`
 
@@ -135,11 +135,11 @@ export default class HomeController {
         MESSAGE_PUSH.notificationFlash('success', '', 'Mensagem Editada!', 'check')
         MESSAGE_PUSH.statusHome(session, response)
       }
-    } catch(err) {
-        MESSAGE_PUSH.notificationFlash('danger', '', 'Erro ao enviar mensagem!', 'exclamation')
-        MESSAGE_PUSH.statusHome(session, response)
+    } catch (err) {
+      MESSAGE_PUSH.notificationFlash('danger', '', 'Erro ao enviar mensagem!', 'exclamation')
+      MESSAGE_PUSH.statusHome(session, response)
 
-        console.log(err)
+      console.log(err)
     }
   }
 
@@ -149,13 +149,13 @@ export default class HomeController {
     const MESSAGE_PUSH = new Notification()
 
     try {
-      if(CHAT) {
+      if (CHAT) {
         CHAT.delete()
 
         MESSAGE_PUSH.notificationFlash('success', '', 'Mensagem deletada!', 'check')
         MESSAGE_PUSH.status(session, response)
       }
-    } catch(err) {
+    } catch (err) {
       MESSAGE_PUSH.notificationFlash('danger', '', 'Erro ao deletar mensagem!', 'exclamation')
       MESSAGE_PUSH.status(session, response)
 

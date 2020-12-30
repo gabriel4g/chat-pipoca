@@ -44,9 +44,6 @@ Route.group(() => {
 
 Route.group(() => {
     Route.get('/', 'Config/ConfigController.index')
-    Route.get('/upload', 'Config/ImageController.index')
-    Route.post('/upload', 'Config/ImageController.update')
-    Route.post('/delete/img', 'Config/ImageController.destroy')
     Route.get('/profile', 'Auth/ProfileController.edit')
     Route.post('/profile', 'Auth/ProfileController.update')
     Route.get('/profile/remove', 'Auth/ProfileController.destroy')

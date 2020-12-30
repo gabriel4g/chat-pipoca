@@ -1,7 +1,6 @@
 @if(flashMessages.get('notification'))
-    <div class=" alert-{{ flashMessages.get('notification.type') }}"
-      id="notification">
-		<i class="fas fa-{{flashMessages.get('notification.icon')}}"></i>
-		{{ flashMessages.get('notification.message') }}
-	</div>
+  <div class=" alert-{{ flashMessages.get('notification.type') }}" id="notification">
+    <i class="fas fa-{{flashMessages.get('notification.icon')}}"></i>
+    {{ flashMessages.get('notification.message') }}
+  </div>
 @endif

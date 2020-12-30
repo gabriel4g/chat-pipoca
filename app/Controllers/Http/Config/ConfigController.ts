@@ -7,18 +7,18 @@ import StyleHelper from 'App/Helpers/StyleHelper'
 import gravatar from 'gravatar'
 
 export default class ConfigsController {
-    public async index({ response, view, auth }) {
-      const MESSAGE = await TeamWall.find(1)
-        if(auth.user) {
-            return view.render('Auth/configs/config', {
-              user: auth.user,
-              message: (MESSAGE)? MESSAGE.message:'',
-              style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
-              styleDefault: StyleHelper.style(),
-              avatar: gravatar
-            })
-        } else {
-            response.redirect('/login')
-        }
+  public async index({ response, view, auth }) {
+    const MESSAGE = await TeamWall.find(1)
+    if (auth.user) {
+      return view.render('Auth/configs/config', {
+        user: auth.user,
+        message: (MESSAGE) ? MESSAGE.message : '',
+        style: (StyleHelper.styleSecondary() == 'Dark') ? Dark : Light,
+        styleDefault: StyleHelper.style(),
+        avatar: gravatar
+      })
+    } else {
+      response.redirect('/login')
     }
+  }
 }

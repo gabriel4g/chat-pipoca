@@ -1,74 +1,74 @@
 @layout('layouts/app')
 
 @section('content')
-    <div class="div-bar">Perfil de
-        <strong style="color: {{ user.color }};">
-            {{ user.username }}
-        </strong>
-    </div>
-    <div class="border-profile">
-        <img id="profile-img"src="{{avatar.url(user.email, { s: '100', r: 'g', d: 'robohash' }, true)}}" alt="">
-        <div id="status-profile">
-            @if(user.permission == 0)
-                <strong>Administrador(a)</strong>
-            @elseif(user.permission == 1)
-                <strong>Moderador(a)</strong>
-            @else
-                <strong>Usuário(a)</strong>
-            @endif
-            @if(auth.user.id == user_id)
+<div class="div-bar">Perfil de
+  <strong style="color: {{ user.color }};">
+    {{ user.username }}
+  </strong>
+</div>
+<div class="border-profile">
+  <img id="profile-img" src="{{avatar.url(user.email, { s: '100', r: 'g', d: 'robohash' }, true)}}" alt="">
+  <div id="status-profile">
+    @if(user.permission == 0)
+      <strong>Administrador(a)</strong>
+    @elseif(user.permission == 1)
+      <strong>Moderador(a)</strong>
+    @else
+      <strong>Usuário(a)</strong>
+    @endif
+    @if(auth.user.id == user_id)
 
-            @else
-                <a href=""><i class="fas fa-envelope"></i> Mensagem</a>
-            @endif
-        </div>
-    </div>
-    <div class="border-profile" style="display: flex; flex-direction: column">
-      <ul>
-        <li style="text-align: center;">Status:
-          <strong>{{ (user.status)? user.status:'' }}</strong>
-        </li>
-      </ul>
-    </div>
-    <div class="border-profile" style="display: flex; flex-direction: column">
-        <ul>
-            <li>Usuário ID:
-                <strong>{{ user.id }}</strong>
-            </li>
-            <li>Último acesso:
-                <strong>{{ user.last_acess? user.last_acess:''}}</strong>
-            </li>
-            <li>Sexo:
-                <strong>
-                  @if(user.sex == 'M')
-                    Masculino
-                  @elseif(user.sex == 'F')
-                    Feminino
-                  @endif
-                </strong>
-            </li>
-            <li>Registrou-se:
-                <strong>{{ createdAt }}</strong>
-            </li>
-            <li>Localidade:
-                <strong>{{ user.location? user.location:''}}</strong>
-            </li>
-            <li>Relacionamento:
-                <strong>{{ user.relationship? user.relationship:''}}</strong>
-            </li>
-            <li>Orientação Sexual:
-                <strong>{{ user.sexual_orientation? user.sexual_orientation:''}}</strong>
-            </li>
-        </ul>
-    </div>
-    <div class="border-profile">
-        <ul>
-            <li><a href="">Mais informações</a></li>
-            @if(auth.user.permission == 0)
-                <li><a href="">Moderar usuário</a></li>
-                <li><a href="">Administrar usuário</a></li>
-                <li><a href="">Adicionar VIP</a></li>
-            @endif
-        </ul>
-    </div>
+    @else
+      <a href=""><i class="fas fa-envelope"></i> Mensagem</a>
+    @endif
+  </div>
+</div>
+<div class="border-profile" style="display: flex; flex-direction: column">
+  <ul>
+    <li style="text-align: center;">Status:
+      <strong>{{ (user.status)? user.status:'' }}</strong>
+    </li>
+  </ul>
+</div>
+<div class="border-profile" style="display: flex; flex-direction: column">
+  <ul>
+    <li>Usuário ID:
+      <strong>{{ user.id }}</strong>
+    </li>
+    <li>Último acesso:
+      <strong>{{ user.last_acess? user.last_acess:''}}</strong>
+    </li>
+    <li>Sexo:
+      <strong>
+        @if(user.sex == 'M')
+        Masculino
+        @elseif(user.sex == 'F')
+        Feminino
+        @endif
+      </strong>
+    </li>
+    <li>Registrou-se:
+      <strong>{{ createdAt }}</strong>
+    </li>
+    <li>Localidade:
+      <strong>{{ user.location? user.location:''}}</strong>
+    </li>
+    <li>Relacionamento:
+      <strong>{{ user.relationship? user.relationship:''}}</strong>
+    </li>
+    <li>Orientação Sexual:
+      <strong>{{ user.sexual_orientation? user.sexual_orientation:''}}</strong>
+    </li>
+  </ul>
+</div>
+<div class="border-profile">
+  <ul>
+    <li><a href="">Mais informações</a></li>
+    @if(auth.user.permission == 0)
+    <li><a href="">Moderar usuário</a></li>
+    <li><a href="">Administrar usuário</a></li>
+    <li><a href="">Adicionar VIP</a></li>
+    @endif
+  </ul>
+</div>
 @endsection

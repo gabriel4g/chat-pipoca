@@ -12,14 +12,14 @@ html {
 }
 
 body {
-    background-color: black;
-    border: 2px solid #75c1ff;
-    padding: 2pt;
-    color: #ccc;
-    position: relative;
-    margin: 0;
-    padding-bottom: 6rem;
-    min-height: 100%;
+  background-color: black;
+  border: 2px solid #75c1ff;
+  padding: 2pt;
+  color: #ccc;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
 }
 
 @media only screen and (max-width: 999px) {
@@ -27,88 +27,83 @@ body {
     margin-right: 30%;
     position: relative;
   }
-
-  .hidden-small { display: none!important; }
 }
 
 @media only screen and (min-width: 1000px) {
   .header-menu {
-    margin-right: 54%;
+    margin-right: 22%;
   }
 
-  .hidden-larger { display: none; }
-
-  .header-larger { margin-left: 16%; }
 }
 
 .nav-border {
-    margin: 1px;
-    padding: 4px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 2px #333333 solid;
-    background-color: #050505;
+  margin: 1px;
+  padding: 4px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 2px #333333 solid;
+  background-color: #050505;
 }
 
 .nav-border-min {
-    border: 1px solid #333;
-    margin: 4px 0;
-    padding: 6px;
+  border: 1px solid #333;
+  margin: 4px 0;
+  padding: 6px;
 }
 
 .div-blue {
-    text-align:center;
-    font-weight: bold;
-    color: #005064;
-    background-color: #000406;
-    margin: 1px;
-    padding: 4px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #005064;
+  text-align:center;
+  font-weight: bold;
+  color: #005064;
+  background-color: #000406;
+  margin: 1px;
+  padding: 4px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #005064;
 }
 
 .upload, .dropdown {
-    display: inline;
+  display: inline;
 }
 
 a {
-    color: #75c1ff;
-    text-decoration: none;
+  color: #75c1ff;
+  text-decoration: none;
 }
 
 a:hover {
-    color: #ccc;
-    text-decoration: underline;
+  color: #ccc;
+  text-decoration: underline;
 }
 
 .div-bar {
-    text-align: center;
-    font-weight: bold;
-    margin: 1px;
-    padding: 4px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px #202020 solid;
-    background-color: #101010;
+  text-align: center;
+  font-weight: bold;
+  margin: 1px;
+  padding: 4px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px #202020 solid;
+  background-color: #101010;
 }
 
 .input-space { margin: 1px; }
 
 input[type="text"], input[type="password"],input[type="number"],
 input, option, textarea {
-    color: #ccc;
-    padding: 6pt;
-    border-radius:3px;
-    -moz-border-radius:3px;
-    -webkit-border-radius:3px;
-    border: 1px #333 solid;
-    background-color:#111111;
-    margin: 0 auto;
-    width: 70%;
+  color: #ccc;
+  padding: 6pt;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  border: 1px #333 solid;
+  background-color:#111111;
+  margin: 0 auto;
+  width: 70%;
 }
 
 select {
@@ -122,67 +117,66 @@ select {
   display: block;
   margin: 0 auto;
   width: 44pt;
-
 }
 
 ::placeholder {
-    color: #ccc;
+  color: #ccc;
 }
 
 .border-profile {
-    border-radius: 3px;
-    margin: 4px 0;
-    border: 1px solid #333;
-    border-left-width: 5px;
-    padding: 4pt;
+  border-radius: 3px;
+  margin: 4px 0;
+  border: 1px solid #333;
+  border-left-width: 5px;
+  padding: 4pt;
 }
 
 #status-profile {
-    float: right;
-    display: flex;
-    margin: 8pt 16% 0;
-    flex-direction: column;
-    text-align: center;
+  float: right;
+  display: flex;
+  margin: 8pt 16% 0;
+  flex-direction: column;
+  text-align: center;
 }
 
 #profile-img {
-    margin-left: 8%;
-    padding: 2px;
-    width: 70px;
-    height: 70px;
-    border: 1px solid #333;
-    border-radius: 3px;
+  margin-left: 8%;
+  padding: 2px;
+  width: 70px;
+  height: 70px;
+  border: 1px solid #333;
+  border-radius: 3px;
 }
 
 @media only screen and (min-width: 800px) {
-    #check {
-        margin-left: 8em;
-    }
+  #check {
+    margin-left: 8em;
+  }
 
-    #remember {
-        margin-left: -5em;
-    }
+  #remember {
+    margin-left: -5em;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    #check {
-        margin-left: -3em;
-    }
+  #check {
+    margin-left: -3em;
+  }
 
-    #remember {
-        margin-left: 2em;
-    }
+  #remember {
+    margin-left: 2em;
+  }
 }
 
 .btn-style {
-    display: block;
-    width: 70%;
-    margin: 1% auto 0 auto;
+  display: block;
+  width: 70%;
+  margin: 1% auto 0 auto;
 }
 
 ul {
-    list-style: none;
-    margin: 0 0 0 -30pt;
+  list-style: none;
+  margin: 0 0 0 -30pt;
 }
 
 footer {
@@ -195,16 +189,16 @@ footer {
 }
 
 label {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 textarea{ font-size:17px; }
 
 #notification {
-    margin: 1% 1%;
-    padding: 4pt;
-    text-align: center;
-    border-radius: 6pt;
+  margin: 1% 1%;
+  padding: 4pt;
+  text-align: center;
+  border-radius: 6pt;
 }

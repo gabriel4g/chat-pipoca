@@ -6,14 +6,14 @@ import gravatar from 'gravatar'
 
 
 export default class TeamWallsController {
-  public async index ({ response, auth, view}) {
+  public async index({ response, auth, view }) {
     const MESSAGE = await TeamWall.find(1)
 
-    if(auth.user) {
-      if(auth.user.permission == 0 || auth.user.permission == 1) {
+    if (auth.user) {
+      if (auth.user.permission == 0 || auth.user.permission == 1) {
         return view.render('Auth/configs/panel/mod/teamwall', {
-          message: (MESSAGE)? MESSAGE.message:'',
-          style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
+          message: (MESSAGE) ? MESSAGE.message : '',
+          style: (StyleHelper.styleSecondary() == 'Dark') ? Dark : Light,
           styleDefault: StyleHelper.style(),
           avatar: gravatar
         })
@@ -25,10 +25,10 @@ export default class TeamWallsController {
     }
   }
 
-  public async store ({ response, request }) {
+  public async store({ response, request }) {
     const MESSAGE_ID = await TeamWall.find(1)
     const { MESSAGE } = request.all()
-    if(MESSAGE_ID) {
+    if (MESSAGE_ID) {
 
       MESSAGE_ID.message = MESSAGE
 
