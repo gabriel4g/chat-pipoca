@@ -9,6 +9,48 @@
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <ul class="hidden-larger">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <img
+                  src="{{ avatar.url(auth.user.email , { s: '100', r: 'g', d: 'robohash' }, true) }}" alt="profile"
+                  width="30" height="30" style="border-radius: 50%;">
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <ul style="text-align: center;">
+                  <li class="dropdown-item">
+                    <a class="dropdown-item" href="/u/{{ auth.user.id }}">
+                      <i class="fas fa-id-badge"></i> Profile
+                    </a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a class="dropdown-item" href="/msg">
+                        <i class="fas fa-inbox"></i> Mensagens
+                    </a>
+                  </li>
+                  <li class="dropdown-item">
+                      <a class="dropdown-item" href="/notf">
+                          <i class="fas fa-bell"></i> Notificações
+                      </a>
+                  </li>
+                  <li class="dropdown-item">
+                      <a class="dropdown-item" href="/config">
+                          <i class="fas fa-user-cog"></i> Configurações
+                      </a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a class="dropdown-item" href="/logout">
+                      <i class="fas fa-sign-out-alt"></i> Sair
+                    </a>
+                  </li>
+                </ul>
+            </div>
+        </li>
+        </ul>
+
         <div class="collapse navbar-collapse" id="navbarNavDropdown"
 	        style= "margin-left: 8vw;">
             <ul class="navbar-nav " style="text-align: center;">
@@ -43,7 +85,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown hidden-small">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
                       role="button" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">
@@ -84,5 +126,10 @@
             </ul>
         </div>
 
+      @else
+       <div class="header-larger">
+        <a href="/login">Login</a> /
+        <a href="/join">Criar conta</a>
+       </div>
     @endif
   </nav>
