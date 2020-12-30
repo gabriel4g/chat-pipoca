@@ -41,7 +41,8 @@ export default class ProfilesController {
               user: auth.user,
               message: (MESSAGE)? MESSAGE.message:'',
               style: (StyleHelper.styleSecondary() == 'Dark')? Dark:Light,
-              styleDefault: StyleHelper.style()
+              styleDefault: StyleHelper.style(),
+              avatar: gravatar
             })
         } else {
             response.redirect('/login')
