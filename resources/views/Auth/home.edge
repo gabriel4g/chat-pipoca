@@ -6,9 +6,9 @@
 </div>
 <nav class="nav-border">
   @include('imports/notification')
-    <form action="{{(chats)? `/chat`:`/chat/edit/${id}` }}"" method=" post">
+    <form action="{{(chats)? `/chat`:`/chat/edit/${id}` }}" method="post">
       <textarea style="width: 100%;height:80px;font-size:17px;" name="message" maxlength="160"
-        placeholder="Seu texto...">{{(editMessage)? editMessage:''}}</textarea>
+        placeholder="Seu texto..." required>{{(editMessage)? editMessage:''}}</textarea>
 
       @include('imports/droplist')
       @include('imports/upload')
