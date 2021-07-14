@@ -1,0 +1,28 @@
+@layout('layouts/app')
+@section('content')
+  <div class="div-bar">Create new accounts</div>
+
+  @include('includes/notification')
+  <form action="{{ route('RegisterController.store') }}" method="post">
+    <label for="fullname" class="input-space">Name</label>
+    <input type="text" name="fullname" id="fullname" required>
+
+    <label for="email" class="input-space">Email</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="password" class="input-space">Password</label>
+    <input type="password" name="password" id="password" required>
+
+    <label for="re-password" class="input-space" required>Repeat Password</label>
+    <input type="password" id="re-password">
+
+    <button type="submit" class="btn btn-style">Register</button>
+
+    <div style="text-align: center; margin: 2% 0;">
+      <p>
+        CBy registering, you agree to the site's <a href="/terms">terms</a><br>
+        and conditions!
+      </p>
+    </div>
+  </form>
+@endsection

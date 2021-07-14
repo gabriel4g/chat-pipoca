@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+:root {
+  --blue: #007bff;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #dc3545;
+  --orange: #fd7e14;
+  --yellow: #ffc107;
+  --green: #28a745;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --white: #fff;
+  --black: #000;
+  --gray: #6c757d;
+  --gray-dark: #343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --light: #f8f9fa;
+  --dark: #343a40;
+}
+
+body {
+  background-color: var(--black);
+  color: #ccc;
+}
+
+.navbar {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.nav-border {
+  border: 2px solid var(--dark);
+  background-color: #050505;
+}
+
+.nav-border i {
+  color: var(--secondary);
+}
+
+.nav-border a {
+  color: #75c1ff;
+}
+.nav-border a:hover {
+  text-decoration: none;
+  color: var(--gray);
+}
+
+.div-bar {
+  border: 1px solid #202020;
+  background-color: #101010;
+}
+
+input[type='email'],
+input[type='password'],
+input[type='text'] {
+  color: #ccc;
+  border: 1px #333 solid;
+  background-color: #111111;
+}
+
+.btn-style {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+footer {
+  background-color: var(--dark);
+}

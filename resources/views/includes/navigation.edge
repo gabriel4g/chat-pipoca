@@ -1,0 +1,15 @@
+<nav class="nav-border">
+  @if(auth.user)
+    <i class="fas fa-user"></i>
+    <a href="/user/{{ aut.user.id }}" style="color: {{ auth.user.color }};">
+      {{ auth.user.username }}
+    </a>
+    <i class="fas fa-sign-out-alt"></i>
+    <a href="/logout">Logout</a>
+  @else
+    <i class="fas fa-sign-in-alt"></i>
+    <a href="{{ route('LoginController.index') }}">Sign In</a>
+    <i class="fas fa-user-plus"></i>
+    <a href="{{ route('RegisterController.index') }}">Create your account</a>
+  @endif
+</nav>

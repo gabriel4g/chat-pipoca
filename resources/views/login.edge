@@ -1,0 +1,19 @@
+@layout('layouts/app')
+@section('content')
+  <div class="div-bar">Sign In Account</div>
+
+  @include('includes/notification')
+  <form action="{{ route('LoginController.show') }}" method="post">
+    <label for="email" class="input-space">Email</label>
+    <input type="email" name="email" id="email">
+    <label for="password" class="input-space">Password</label>
+    <input type="password" name="password" id="password">
+
+    <button type="submit" class="btn btn-style">Sign In</button>
+
+    <div class="form-check">
+      <input type="checkbox" value={{ true }} id="flexCheckIndeterminate">
+      <label for="flexCheckIndeterminate">Remember-me login.</label>
+    </div>
+  </form>
+@endsection
