@@ -7,3 +7,4 @@ coverage
 tmp
 yarn.lock
 package-lock.json
+ace-manifest.json
