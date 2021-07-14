@@ -62,7 +62,7 @@ The following tools were used in the construction of the project:
 
 # Author
 <img src="https://avatars.githubusercontent.com/u/62767640?v=4" width="75" height="75px">
-<br>
+
 <a href="https://github.com/gabriel4g">Gabriel Oliveira</a>
 
 <div>
