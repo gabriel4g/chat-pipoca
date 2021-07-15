@@ -1,6 +1,6 @@
 {
   "name": "chat-pipoca",
-  "version": "21.07.0dev",
+  "version": "21.07.1dev",
   "private": true,
   "scripts": {
     "build": "node ace build --production",

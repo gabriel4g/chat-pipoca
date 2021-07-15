@@ -16,6 +16,7 @@
 ### Corrections
  - LoginController - add "await" from auth.login
  - home - added home title
+ - views/notification - updated auth.user.username to "auth.user.name"
  - style - nav-border decoration and margin
 
 ### Tests added
