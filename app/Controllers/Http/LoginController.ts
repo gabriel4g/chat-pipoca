@@ -28,7 +28,7 @@ export default class LoginController {
     }
     if (user) {
       if (await Hash.verify(user.password, password)) {
-        auth.login(user, remember)
+        await auth.login(user, remember)
 
         return response.redirect('/')
       }
@@ -41,6 +41,6 @@ export default class LoginController {
   public async logout({ auth, response }: HttpContextContract) {
     await auth.logout()
 
-    return response.redirect('/login')
+    return response.redirect('/signin')
   }
 }
