@@ -17,25 +17,24 @@ export default class LoginController {
 
     const user = await User.query().where('email', email).first()
 
-    if (!user?.activated) {
-      this.notification.toTake(
-        'exclamation-triangle',
-        'warning',
-        '',
-        'Check your email to activate your account!'
-      )
-      this.notification.flash('back', session, response)
-    }
-    if (user) {
-      if (await Hash.verify(user.password, password)) {
-        await auth.login(user, remember)
+    if(user && await Hash.verify(user.password, password)) {
+      if(!user.activated) {
+        this.notification.toTake(
+          'exclamation-triangle',
+          'warning',
+          '',
+          'Check your email to activate your account!'
+        )
+        this.notification.flash('back', session, response)
+      } else {
+          await auth.login(user, remember)
 
-        return response.redirect('/')
+          return response.redirect('/')
       }
+    } else {
+        this.notification.toTake('exclamation-triangle', 'danger', '', 'Incorrect email or password!')
+        this.notification.flash('back', session, response)
     }
-
-    this.notification.toTake('exclamation-triangle', 'danger', '', 'Incorrect email or password!')
-    this.notification.flash('back', session, response)
   }
 
   public async logout({ auth, response }: HttpContextContract) {
