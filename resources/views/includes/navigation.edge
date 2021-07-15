@@ -1,8 +1,8 @@
 <nav class="nav-border">
   @if(auth.user)
     <i class="fas fa-user"></i>
-    <a href="/user/{{ aut.user.id }}" style="color: {{ auth.user.color }};">
-      {{ auth.user.username }}
+    <a href="/user/{{ auth.user.id }}" style="color: {{ auth.user.color }};">
+      {{ auth.user.name }}
     </a>
     <i class="fas fa-sign-out-alt"></i>
     <a href="/logout">Logout</a>
