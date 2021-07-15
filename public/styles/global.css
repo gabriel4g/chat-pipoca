@@ -42,6 +42,11 @@ a img#logo {
   border-radius: 5px;
 }
 
+.nav-border a {
+  text-decoration: none;
+  margin-right: 1%;
+}
+
 .div-bar {
   text-align: center;
   font-weight: bold;
