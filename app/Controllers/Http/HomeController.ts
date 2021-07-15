@@ -2,7 +2,9 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
 export default class HomeController {
   public async index({ view }: HttpContextContract) {
-    return view.render('home')
+    return view.render('home', {
+      title: 'chat-pipoca - Home'
+    })
   }
 
   public async create({}: HttpContextContract) {}
